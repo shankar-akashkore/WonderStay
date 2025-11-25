@@ -5,6 +5,8 @@ const Listing = require("./models/listing.js");
 const path = require("path");
 const methodOverride = require("method-override");
 const ejsMate = require("ejs-mate");
+const wrapAsync = require("./utils/wrapAsync.js");
+const ExpressError = require("./utils/ExpressError.js");
 
 const MONGO_URL = "mongodb://127.0.0.1:27017/WonderStay";
 
@@ -31,10 +33,10 @@ app.get("/" , (req,res) => {
 });
 
 //index routing
-app.get("/listings", async (req,res) => {
+app.get("/listings", wrapAsync(async (req,res) => {
     const allListing = await Listing.find({});
     res.render("listing/index", { allListing });
-});
+}));
 
 //New routes
 app.get("/listings/new",(req,res) => {
@@ -42,41 +44,42 @@ app.get("/listings/new",(req,res) => {
 })
 
 //show routes
-app.get("/listings/:id", async (req,res) => {
+app.get("/listings/:id", wrapAsync(async (req,res) => {
     let {id} = req.params;
     const listing = await Listing.findById(id);
     res.render("listing/show" , { listing });
-});
+}));
 
 //Create routes
-app.post("/listings",async (req,res) => {
+app.post("/listings",wrapAsync(async (req,res,next) => {
     const newlisting = new Listing(req.body.listing);
     await newlisting.save();
     res.redirect("/listings");
-});
+})
+);
 
 
 //edit routes
-app.get("/listings/:id/edit",async (req,res) => {
+app.get("/listings/:id/edit",wrapAsync(async (req,res) => {
     let {id} = req.params;
     const listing = await Listing.findById(id);
     res.render("listing/edit" , {listing});
-});
+}));
 
 //update routes
-app.put("/listings/:id",async(req,res) => {
+app.put("/listings/:id",wrapAsync(async(req,res) => {
     let { id } = req.params;
     await Listing.findByIdAndUpdate(id,{ ...req.body.listing});
     res.redirect("/listings");
-});
+}));
 
 //Delete routes
-app.delete("/listings/:id",async (req,res) => {
+app.delete("/listings/:id",wrapAsync(async (req,res) => {
     let {id} = req.params;
     let deletedlisting = await Listing.findByIdAndDelete(id);
     console.log(deletedlisting);
     res.redirect("/listings");
-});
+}));
 
 // app.get("/testListing" , async(req,res) => {
 //     let sampleListing = new Listing({
@@ -92,6 +95,14 @@ app.delete("/listings/:id",async (req,res) => {
 //     res.send("Successful testing");
 // });
 
+app.use((req,res,next) => {
+    next(new ExpressError(404,"Page not found"))
+})
+
+app.use((err,req,res,next) => {
+    let {status=500,message="page not found"} = err;
+    res.status(status).send(message);
+})
 app.listen(6060, () => {
     console.log("port is running 6060")
 })

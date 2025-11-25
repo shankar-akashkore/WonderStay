@@ -63,12 +63,23 @@ body{
 .card{
     border: none !important;
     margin-bottom: 2rem;
-    transition: all 0.3s ease;
+    /* transition: all 0.3s ease; */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    /* transform: translateY(-10px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15); */
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+.product-image {
+    transition: transform 0.5s ease;
+}
+  
+.product-card:hover .product-image {
+    transform: scale(1.05);
 }
 
 .card-img-top{
