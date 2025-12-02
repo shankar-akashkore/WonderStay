@@ -7,6 +7,8 @@ const methodOverride = require("method-override");
 const ejsMate = require("ejs-mate");
 const wrapAsync = require("./utils/wrapAsync.js");
 const ExpressError = require("./utils/ExpressError.js");
+const {listingsSchemas,reviewSchema} = require("./schema.js");
+const Review = require("./models/review.js");
 
 const MONGO_URL = "mongodb://127.0.0.1:27017/WonderStay";
 
@@ -32,6 +34,30 @@ app.get("/" , (req,res) => {
     res.send("Hi this is HarHari");
 });
 
+
+const validateListing = (req,res,next) => {
+    let {error} = listingsSchemas.validate(req.body);
+    if(error) {
+        let errMeg = error.details.map((el) => el.message).join(",");
+        throw new ExpressError(400,errMeg);
+    } else {
+        next();
+    }
+};
+
+const validatereview = (req,res,next) => {
+    if(!req.body.review){
+        throw new ExpressError(400,"Review is required");
+    }
+    let {error} = reviewSchema.validate(req.body.review);
+    if(error) {
+        let errMeg = error.details.map((el) => el.message).join(",");
+        throw new ExpressError(400,errMeg);
+    } else {
+        next();
+    }
+};
+
 //index routing
 app.get("/listings", wrapAsync(async (req,res) => {
     const allListing = await Listing.find({});
@@ -52,6 +78,12 @@ app.get("/listings/:id", wrapAsync(async (req,res) => {
 
 //Create routes
 app.post("/listings",wrapAsync(async (req,res,next) => {
+    // let result = listingsSchemas.validate(req.body);
+    // console.log(result);
+    const { error } = listingsSchemas.validate(req.body);
+    if (error) {
+      throw new ExpressError(error.details[0].message, 400);
+    }
     const newlisting = new Listing(req.body.listing);
     await newlisting.save();
     res.redirect("/listings");
@@ -81,6 +113,20 @@ app.delete("/listings/:id",wrapAsync(async (req,res) => {
     res.redirect("/listings");
 }));
 
+
+//Review POST
+app.post("/listings/:id/reviews",validatereview , wrapAsync(async(req,res) => {
+    let listing = await Listing.findById(req.params.id);
+    let newReview = new Review(req.body.review);
+
+    listing.reviews.push(newReview);
+    await newReview.save();
+    await listing.save();
+
+    console.log("new review saves");
+    res.redirect(`/listings/${listing._id}`);
+}));
+
 // app.get("/testListing" , async(req,res) => {
 //     let sampleListing = new Listing({
 //         title: "My New Villa",
@@ -96,12 +142,15 @@ app.delete("/listings/:id",wrapAsync(async (req,res) => {
 // });
 
 app.use((req,res,next) => {
-    next(new ExpressError(404,"Page not found"))
+    next(new ExpressError("Page not found",404))
 })
 
 app.use((err,req,res,next) => {
-    let {status=500,message="page not found"} = err;
-    res.status(status).send(message);
+    let status = err.status || 500;
+    let message = err.message || "Something went wrong";
+    // let {status=500,message="page not found"} = err;
+    // res.status(status).send(message);
+    res.status(status).render("error", {message})
 })
 app.listen(6060, () => {
     console.log("port is running 6060")
