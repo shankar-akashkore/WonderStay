@@ -100,6 +100,11 @@ body{
     text-decoration: none;
 }
 
+.card-review{
+    border: solid 1px gray;
+    border-radius: 8px;
+    margin-bottom: 2rem;
+}
 
 /* add button */
 .btn-link-custom{
