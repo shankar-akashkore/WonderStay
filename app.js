@@ -13,6 +13,8 @@ const { wrap } = require("module");
 const listing = require("./models/listing.js");
 const listings = require("./routes/listing.js");
 const reviews = require("./routes/review.js");
+const session = require("express-session");
+const flash = require("connect-flash");
 
 const MONGO_URL = "mongodb://127.0.0.1:27017/WonderStay";
 
@@ -26,6 +28,17 @@ async function main() {
     await mongoose.connect(MONGO_URL);
 }
 
+const sessionOptions = {
+    secret: "mysupersecretcode",
+    resave: false,
+    saveUninitialized: true,
+    cookie: {
+        expires : Date.now() + 7 * 24 * 60 * 60 * 1000,
+        maxAge : 7 * 24 * 60 * 60 * 1000,
+        httpOnly : true,
+    },
+};
+
 app.set("view engine" , "ejs");
 app.set("views",path.join(__dirname, "views"));
 app.use(express.urlencoded({extended: true}));
@@ -37,36 +50,29 @@ app.get("/" , (req,res) => {
     res.send("Hi this is HarHari");
 });
 
+app.use(session(sessionOptions));
+app.use(flash());
+
+app.use((req,res,next) => {
+    res.locals.success = req.flash("success");
+    res.locals.error = req.flash("error");
+    next();
+});
+
 app.use("/listings",listings);
 app.use("/listings/:id/reviews",reviews);
- 
-
-// app.get("/testListing" , async(req,res) => {
-//     let sampleListing = new Listing({
-//         title: "My New Villa",
-//         description: "By near the Beach",
-//         price: 1600,
-//         location: "Panji,Goa",
-//         country: "India"
-//     });
-
-//     await sampleListing.save();
-//     console.log("sample was saved");
-//     res.send("Successful testing");
-// });
 
 app.use((req,res,next) => {
     next(new ExpressError("Page not found",404))
-})
+});
 
 app.use((err,req,res,next) => {
     let status = err.status || 500;
     let message = err.message || "Something went wrong";
-    // let {status=500,message="page not found"} = err;
-    // res.status(status).send(message);
     res.status(status).render("error", {message})
-})
+});
+
 app.listen(6060, () => {
     console.log("port is running 6060")
-})
+});
 
