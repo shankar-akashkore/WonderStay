@@ -1,15 +1,21 @@
 <% layout("/layouts/boilerplate") %>
 <body>
     <div class="row mt-3">
-        <div class="col-8 offset-3 mt-2">
+        <!-- <div class="col-8 offset-3 mt-2">
             <h3>All listing details</h3>
+        </div> -->
+        <div class="col-8 offset-3 mt-2">
+            <h3> <b> <%= listing.title %> </b> </h3>
         </div>
-
     <div class="card col-6 offset-3 mt-2 show card">
+        
         <img src="<%= listing.image.url || listing.image%>" class="card-img-top show-img" alt="listingimage">
         <div class="card-body">
             <p class="card-text"> 
                 <b><%= listing.title %></b> <br>
+                <i>Owned by <%= listing.owner.username %></i>
+                <br>
+                <br>
                 <%= listing.description %> <br>
                 &#8377;<%= listing.price ? listing.price.toLocaleString("en-IN") : "N/A" %> <br>
                 <%= listing.location %> <br>
@@ -18,6 +24,8 @@
         </div>
     </div>
     <br>
+
+    <% if(currUser && listing.owner._id.equals(currUser._id)) { %>
     <div class="btns">
         <a href="/listings/<%= listing._id %>/edit" 
             class="btn col-1 offset-3 btn-show">Edit</a>
@@ -25,9 +33,12 @@
         <button class="btn btn-dark offset-4">Delete</button>
     </form>
     </div>
+    <% } %>
+    
 
     <div class="col-5 offset-3 mb-3">
         <hr>
+        <% if(currUser) { %>
         <h3>Add a Review</h3>
         <form action="/listings/<%= listing._id %>/reviews" method="POST" class="needs-validation"  novalidate>
             <div class="mb-3 mt-3">
@@ -41,14 +52,16 @@
             </div>
             <button class="btn btn-outline-dark">Submit</button>
         </form>
+        <hr> 
+        <% } %> 
 
-        <hr>
+        
         <p><b>All Reviews</b></p>
         <div class="row">
             <% for(review of listing.reviews) { %>
                 <div class="card-review col-5.5 ms-3 mb-3">
                     <div class="card-body">
-                        <h5 class="card-title">HarHari</h5>
+                        <h5 class="card-title"> @ <%= review.author.username %></h5>
                         <p class="card-text"> <%= review.comment %> </p>
                         <p class="card-text"> <%= review.rating %> </p>
                     </div>

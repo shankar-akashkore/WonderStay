@@ -6,24 +6,13 @@ const {listingsSchemas,reviewSchemas} = require("../schema.js");
 const Review = require("../models/review.js");
 const listing = require("../models/listing.js");
 const Listing = require("../models/listing.js");
-
-const validatereview = (req,res,next) => {
-    if(!req.body.review){
-        throw new ExpressError("Review is required",400);
-    }
-    let {error} = reviewSchemas.validate(req.body);
-    if(error) {
-        let errMeg = error.details.map((el) => el.message).join(",");
-        throw new ExpressError(errMeg,400);
-    } else {
-        next();
-    }
-};
+const {validatereview, isLoggedIn, isAuthor } = require("../middleware.js");
 
 //Review POST
-router.post("/",validatereview , wrapAsync(async(req,res) => {
+router.post("/",validatereview ,isLoggedIn, wrapAsync(async(req,res) => {
     let listing = await Listing.findById(req.params.id);
     let newReview = new Review(req.body.review);
+    newReview.author = req.user._id; 
 
     listing.reviews.push(newReview);
     await newReview.save();
@@ -35,7 +24,7 @@ router.post("/",validatereview , wrapAsync(async(req,res) => {
 }));
 
 //Review Delete
-router.delete("/:reviewId",wrapAsync(async(req,res) => {
+router.delete("/:reviewId",isLoggedIn,isAuthor,wrapAsync(async(req,res) => {
     let {id,reviewId} = req.params;
     await Listing.findByIdAndUpdate(id, {$pull: {reviews : reviewId}});
     await Review.findByIdAndDelete(reviewId);
