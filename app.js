@@ -44,10 +44,6 @@ app.use(methodOverride("_method"));
 app.engine("ejs",ejsMate);
 app.use(express.static(path.join(__dirname,"/public")));
 
-app.get("/" , (req,res) => {
-    res.send("Hi this is HarHari");
-});
-
 app.use(session(sessionOptions));
 app.use(flash());
 
@@ -55,13 +51,21 @@ app.use(passport.initialize());
 app.use(passport.session());
 passport.use(new LocalStrategy(User.authenticate()));
 
+app.use(passport.initialize());
+app.use(passport.session());
+
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
 app.use((req,res,next) => {
     res.locals.success = req.flash("success");
     res.locals.error = req.flash("error");
+    res.locals.currUser = req.user;
     next();
+});
+
+app.get("/" , (req,res) => {
+    res.send("Hi this is HarHari");
 });
 
 app.use("/listings",listingsRouter);
