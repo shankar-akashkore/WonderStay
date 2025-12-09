@@ -44,12 +44,8 @@ const listingSchema = new Schema({
         required: true,   // Optional but recommended
     },
     image: {
+        url: String,
         filename: String,
-        url: {
-            type: String,
-            default:
-                "https://unsplash.com/photos/coconut-tree-on-beach-shore-during-daytime-ueBmz9K8zT"
-        },
     },
     price: {
         type: Number,

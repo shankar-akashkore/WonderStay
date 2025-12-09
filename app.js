@@ -1,3 +1,7 @@
+if(process.env.NODE_ENV != "production"){
+    require('dotenv').config()
+}
+
 const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
@@ -85,5 +89,3 @@ app.use((err,req,res,next) => {
 app.listen(6060, () => {
     console.log("port is running 6060")
 });
-
-
