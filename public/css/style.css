@@ -143,3 +143,12 @@ body{
     background-color: #ff626d !important;
     color: white !important;
 }
+
+
+
+
+/* map */
+#map { 
+    height: 400px;
+    width: 80vh;
+}
