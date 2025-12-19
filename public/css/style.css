@@ -151,4 +151,5 @@ body{
 #map { 
     height: 400px;
     width: 80vh;
+    border-radius: 8px;
 }
