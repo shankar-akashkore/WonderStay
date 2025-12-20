@@ -1,6 +1,36 @@
+<style>
+  .btn-search {
+    background-color: #fe424d;
+    color: #fff;
+    border-radius: 25px;
+    padding: 0 1rem 0 1rem;
+  }
+  .btn-search:hover {
+    background-color: #fe424d;
+    color: #fff;
+  }
+  .btn-search i {
+    display: inline;
+    margin-right: 0.5rem;
+  }
+  .search-inp {
+    border-radius: 25px;
+    padding: 0.5rem 3rem 0.5rem 3rem;
+    font-size: 1rem;
+  }
+
+</style>
+
+
+
+
+
+
+
+
 <nav class="navbar navbar-expand-md bg-body-light border-bottom sticky-top" >
     <div class="container-fluid">
-      <a class="navbar-brand" href="/"><i class="fa-solid fa-compass"></i></a>
+      <a class="navbar-brand" href="/listings"><i class="fa-solid fa-compass"></i></a>
       <button 
       class="navbar-toggler" 
       type="button" 
@@ -11,17 +41,25 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav">
-          <a class="nav-link" href="/">Home</a>
-          <a class="nav-link" href="/listings">All Listing</a>
-          <a class="nav-link" href="/listings/new">Add New Listing</a>
+          <a class="nav-link" href="/listings">Explore</a>
         </div>
+
         <div class="navbar-nav ms-auto">
+          <form class="d-flex" role="search">
+            <input class="form-control me-2 search-inp" type="search" placeholder="Search Destinations" aria-label="Search"/>
+            <button class="btn btn-search" type="submit">
+              <i class="ph ph-magnifying-glass"></i>Search</button>
+          </form>
+        </div>
+
+        <div class="navbar-nav ms-auto">
+          <a class="nav-link" href="/listings/new">Add your bnb</a>
           <% if(!currUser) { %>
-          <a class="nav-link" href="/signup">Sign Up</a>
-          <a class="nav-link" href="/login">LogIn</a>
+          <a class="nav-link" href="/signup"><p><b>Sign Up</b></p></a>
+          <a class="nav-link" href="/login"><p><b>LogIn</b></p></a>
           <% } %>
           <% if(currUser) {%>
-          <a class="nav-link" href="/logout">LogOut</a>
+          <a class="nav-link" href="/logout"><p><b>LogOut</b></p></a>
           <% } %>
         </div>
       </div>

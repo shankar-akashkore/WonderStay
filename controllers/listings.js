@@ -32,9 +32,7 @@ module.exports.createListing = async (req,res,next) => {
         limit: 1,
       })
         .send()
-
-    res.send("Done HarHari");
-
+    
     let url = req.file.path;
     let filename = req.file.filename;
     const { error } = listingsSchemas.validate(req.body);

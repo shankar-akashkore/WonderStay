@@ -2,7 +2,90 @@
 
 <body>
   <br>
-    <h3 class="mt-1">All listing</h3>
+    <!-- <h3 class="mt-1">All listing</h3> -->
+     <style>
+      #filters {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+      }
+      .filter{
+        text-align: center;
+        margin-top: 1rem;
+        margin-right: 2rem;
+        opacity: 0.7;
+      }
+
+      .filter:hover {
+        opacity: 1.2;
+        cursor: pointer;
+      }
+
+      .filter p {
+        font-size: 0.8rem  ;
+      }
+
+      .ph-bold {
+        font-size: 29px;
+      }
+
+      .tax-info {
+        display: none;
+      }
+      
+      .tax-toggle {
+        border: 1px solid black;
+        border-radius: 1rem;
+        height: 3.10rem;
+        padding: 1rem;
+        margin-left: 5rem;
+        display: flex;
+        align-items: center;
+      }
+     </style>
+     <div class="container mb-2">
+     <div id="filters">
+      <div class="filter">
+        <div><i class="ph-bold ph-fire"></i></div>
+        <p>Trending</p> 
+      </div>
+      <div class="filter">
+          <div><i class="ph-bold ph-island"></i></div>
+          <p>Beach</p> 
+        </div>
+      <div class="filter">
+          <div><i class="ph-bold ph-bed"></i></div>
+          <p>Rooms</p> 
+        </div>
+        <div class="filter">
+          <div><i class="ph-bold ph-buildings"></i></div>
+          <p>Buildings</p> 
+        </div>
+        <div class="filter">
+          <div><i class="ph-bold ph-person-simple-swim"></i></div>
+          <p>Pools</p> 
+        </div>
+        <div class="filter">
+          <div><i class="ph-bold ph-mountains"></i></div>
+          <p>Mountains</p> 
+        </div>
+        <div class="filter">
+          <div><i class="ph-bold ph-snowflake"></i></div>
+          <p>Arctic</p> 
+        </div>
+        <div class="filter">
+          <div><i class="ph-bold ph-campfire"></i></div>
+          <p>Camping</p> 
+        </div>
+
+        <div class="tax-toggle">
+          <div class="form-check form-switch">
+            <input class="form-check-input" type="checkbox" role="switch" id="switchCheckDefault">
+            <label class="form-check-label" for="switchCheckDefault">Adding After Taxes</label>
+          </div>
+        </div>
+      </div>
+     </div>
 
    <div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1 mb-2">
     <% for(let listing of allListing){ %>
@@ -14,12 +97,28 @@
                   <p class="card-text">
                     <b><%= listing.title %></b> <br>
                     &#8377;<%= listing.price ? listing.price.toLocaleString("en-IN") : "N/A" %>
+                    <i class="tax-info"> &nbsp; +18% GST</i>
                   </p>
                 </div>
               </div>
           </a>
       <% } %>
    </div>
+  </div>  <!-- container -->
 </body>
 
+
+<script>
+  let taxSwitch = document.getElementById("switchCheckDefault");
+  taxSwitch.addEventListener("click",() => {
+    let taxInfo = document.getElementsByClassName("tax-info");
+    for(info of taxInfo) {
+      if(info.style.display != "inline"){
+        info.style.display = "inline";
+      } else {
+        info.style.display = "none";
+      }
+    }
+  })
+</script>
 
