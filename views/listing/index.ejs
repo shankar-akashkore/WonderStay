@@ -6,8 +6,16 @@
      <style>
       #filters {
         display: flex;
+        gap: 1.5rem;
         flex-wrap: wrap;
         align-items: center;
+        margin-bottom: 15px;
+      }
+      .filters-wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
       }
       .filter{
         text-align: center;
@@ -34,16 +42,19 @@
       }
       
       .tax-toggle {
+        position: absolute;
+        right: 0;
         border: 1px solid black;
         border-radius: 1rem;
         height: 3.10rem;
         padding: 1rem;
-        margin-left: 5rem;
+        /* margin-left: 5rem; */
         display: flex;
         align-items: center;
       }
      </style>
      <div class="container mb-2">
+      <div class="filters-wrapper">
      <div id="filters">
       <div class="filter">
         <div><i class="ph-bold ph-fire"></i></div>
@@ -77,6 +88,7 @@
           <div><i class="ph-bold ph-campfire"></i></div>
           <p>Camping</p> 
         </div>
+      </div>
 
         <div class="tax-toggle">
           <div class="form-check form-switch">
