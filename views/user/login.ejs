@@ -1,51 +1,113 @@
 <% layout("/layouts/boilerplate") %>
+
 <style>
-    .input-group-text {
-    border-left: 0;
-    cursor: pointer;
-    font-size: 1.5rem;
+  .auth-container {
+    min-height: 100vh;
   }
-  
+
+  .auth-left {
+  height: 80vh;
+  background-image: url("/images/poster.png");
+  background-size: cover;        
+  background-position: center;   
+  background-repeat: no-repeat;
+  position: relative;
+  padding: 10rem;
+  margin-top: 4rem;
+  color: #111;
+}
+
+  .auth-left::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+}
+  .auth-left-content {
+  position: relative;
+  z-index: 2;
+  max-width: 480px;
+}
+
+  .auth-left img {
+    max-width: 100%;
+    margin-top: 72px;
+  }
+
+  .auth-right {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .auth-card {
+    width: 100%;
+    max-width: 420px;
+  }
+
+  .input-group-text {
+    border-left: 0;
+    background: white;
+    font-size: 1.4rem;
+  }
+
   .form-control {
     border-right: 0;
   }
 </style>
-<div class="row mt-3">
-    <h1 class="col-6 offset-3 mb-5">Login</h1>
-    <div class="col-6 offset-3">
-        <form action="/login" method="POST">
-            <div class="mb-3">
-                <label for="username" class="form-label">Username</label>
-                <div class="input-group">
-                <input
-                   name="username"
-                   id="username"
-                   type="text"
-                   class="form-control"
-                   required
-                />
-                <div class="input-group-text bg-grey">
-                    <i class="ph-fill ph-user-circle"></i>
-                </div>
-                </div>
-            </div>
 
-            <div class="mb-3">
-                <label for="password" class="form-label">Password</label>
-                <div class="input-group">
-                    <input
-                   name="password"
-                   id="password"
-                   type="password"
-                   class="form-control"
-                   required
-                />
-                <div class="input-group-text bg-grey">
-                    <i class="ph-fill ph-lock"></i>
-                </div>
-                </div>
+<div class="container-fluid auth-container">
+  <div class="row h-100">
+    <div class="col-md-6 auth-left d-none d-md-block">
+        <div class="auth-left-content">
+        </div>
+      </div>
+
+    <!-- RIGHT SIDE -->
+    <div class="col-md-6 auth-right">
+      <div class="auth-card">
+
+        <h2 class="mb-1">Login</h2>
+        <p class="text-muted mb-4">Welcome back to WonderStay</p>
+
+        <form action="/login" method="POST">
+
+          <!-- USERNAME -->
+          <div class="mb-3">
+            <label class="form-label">Username</label>
+            <div class="input-group">
+              <input
+                name="username"
+                type="text"
+                class="form-control"
+                required
+              >
+              <span class="input-group-text">
+                <i class="ph-fill ph-user-circle"></i>
+              </span>
             </div>
-            <button type="submit" class="btn btn-success">Login</button>
+          </div>
+
+          <!-- PASSWORD -->
+          <div class="mb-3">
+            <label class="form-label">Password</label>
+            <div class="input-group">
+              <input
+                name="password"
+                type="password"
+                class="form-control"
+                required
+              >
+              <span class="input-group-text">
+                <i class="ph-fill ph-lock"></i>
+              </span>
+            </div>
+          </div>
+
+          <button class="btn btn-dark w-100 mt-2">Login</button>
+
         </form>
+      </div>
     </div>
+
+  </div>
 </div>
