@@ -1,10 +1,22 @@
 <% layout("/layouts/boilerplate") %>
+<style>
+    .input-group-text {
+    border-left: 0;
+    cursor: pointer;
+    font-size: 1.5rem;
+  }
+  
+  .form-control {
+    border-right: 0;
+  }
+</style>
 <div class="row mt-3">
     <h1 class="col-6 offset-3 mb-5">Login</h1>
     <div class="col-6 offset-3">
         <form action="/login" method="POST">
             <div class="mb-3">
                 <label for="username" class="form-label">Username</label>
+                <div class="input-group">
                 <input
                    name="username"
                    id="username"
@@ -12,17 +24,26 @@
                    class="form-control"
                    required
                 />
+                <div class="input-group-text bg-grey">
+                    <i class="ph-fill ph-user-circle"></i>
+                </div>
+                </div>
             </div>
 
             <div class="mb-3">
                 <label for="password" class="form-label">Password</label>
-                <input
+                <div class="input-group">
+                    <input
                    name="password"
                    id="password"
                    type="password"
                    class="form-control"
                    required
                 />
+                <div class="input-group-text bg-grey">
+                    <i class="ph-fill ph-lock"></i>
+                </div>
+                </div>
             </div>
             <button type="submit" class="btn btn-success">Login</button>
         </form>
