@@ -1,68 +1,101 @@
 <% layout("/layouts/boilerplate") %>
+
 <style>
-    .input-group-text {
+  .auth-container {
+    min-height: 100vh;
+  }
+
+  /* LEFT SIDE (FORM) */
+  .auth-left {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .auth-card {
+    width: 100%;
+    max-width: 420px;
+  }
+
+  /* RIGHT SIDE (IMAGE) */
+  .auth-right {
+    height: 80vh;
+    background-image: url("/images/poster.png");
+    background-size: cover;
+    background-position: center top 6rem;
+    background-repeat: no-repeat;
+    margin-top: 1rem;
+  }
+
+  .input-group-text {
     border-left: 0;
-    cursor: pointer;
+    background: white;
     font-size: 1.5rem;
   }
-  
+
   .form-control {
     border-right: 0;
   }
 </style>
-<div class="row mt-3">
-    <h1 class="col-6 offset-3 mb-5">SignUp for WonderStay</h1>
-    <div class="col-6 offset-3">
+
+<div class="container-fluid auth-container">
+  <div class="row h-100">
+
+    <!-- LEFT SIDE (SIGNUP FORM) -->
+    <div class="col-md-6 auth-left">
+      <div class="auth-card">
+
+        <h2 class="mb-1">Sign up for WonderStay</h2>
+        <p class="text-muted mb-4">Create your account and start exploring</p>
+
         <form action="/signup" method="POST" class="needs-validation" novalidate>
-            <div class="mb-3">
-                <label for="username" class="form-label">Username</label>
-                <div class="input-group">
-                <input
-                   name="username"
-                   id="username"
-                   type="text"
-                   class="form-control"
-                   required
-                />
-                <div class="input-group-text bg-grey">
-                    <i class="ph-fill ph-user-circle"></i>
-                </div>
-                </div>
-                <div class="valid-feedback">Looks good!</div>
-            </div>
 
-            <div class="mb-3">
-                <label for="email" class="form-label">Email</label>
-                <div class="input-group">
-                <input
-                   name="email"
-                   id="email"
-                   type="email"
-                   class="form-control"
-                   required
-                />
-                <div class="input-group-text">
-                    <i class="ph-fill ph-envelope-simple"></i>
-                </div>
-                </div>
+          <!-- USERNAME -->
+          <div class="mb-3">
+            <label class="form-label">Username</label>
+            <div class="input-group">
+              <input name="username" type="text" class="form-control" required>
+              <span class="input-group-text">
+                <i class="ph-fill ph-user-circle"></i>
+              </span>
             </div>
+            <div class="valid-feedback">Looks good!</div>
+          </div>
 
-            <div class="mb-3">
-                <label for="password" class="form-label">Password</label>
-                <div class="input-group">
-                <input
-                   name="password",
-                   id="password",
-                   type="password",
-                   class="form-control"
-                   required
-                />
-                <div class="input-group-text bg-grey">
-                    <i class="ph-fill ph-lock"></i>
-                </div>
-                </div>
+          <!-- EMAIL -->
+          <div class="mb-3">
+            <label class="form-label">Email</label>
+            <div class="input-group">
+              <input name="email" type="email" class="form-control" required>
+              <span class="input-group-text">
+                <i class="ph-fill ph-envelope-simple"></i>
+              </span>
             </div>
-            <button class="btn btn-success">SignUp</button>
+          </div>
+
+          <!-- PASSWORD -->
+          <div class="mb-3">
+            <label class="form-label">Password</label>
+            <div class="input-group">
+              <input name="password" type="password" class="form-control" required>
+              <span class="input-group-text">
+                <i class="ph-fill ph-lock"></i>
+              </span>
+            </div>
+          </div>
+
+          <button class="btn btn-dark w-100">Sign Up</button>
+
+          <p class="text-center mt-3">
+            Already have an account? <a href="/login">Login</a>
+          </p>
+
         </form>
+      </div>
     </div>
+
+    <!-- RIGHT SIDE (IMAGE) -->
+    <div class="col-md-6 auth-right d-none d-md-block"></div>
+
+  </div>
 </div>
