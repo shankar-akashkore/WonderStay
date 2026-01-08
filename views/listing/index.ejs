@@ -4,6 +4,18 @@
   <br>
     <!-- <h3 class="mt-1">All listing</h3> -->
      <style>
+      .section1 {
+        margin-bottom: 20px;
+      }
+
+      .section2 { 
+        height: 80px;
+        width: 1200px;
+        /* border: 1px solid black; */
+        border-radius: 3rem;
+        background-color: #eaecf38c;
+      }
+
       #filters {
         display: flex;
         gap: 1.5rem;
@@ -11,12 +23,14 @@
         align-items: center;
         margin-bottom: 15px;
       }
+
       .filters-wrapper {
         display: flex;
         align-items: center;
         justify-content: center;
         position: relative;
       }
+      
       .filter{
         text-align: center;
         margin-top: 1rem;
@@ -45,14 +59,17 @@
         position: absolute;
         right: 0;
         border: 0.3px solid gray;
-        border-radius: 1rem;
-        height: 3.10rem;
+        border-radius: 1.5rem;
+        height: 3rem;
         padding: 1rem;
         /* margin-left: 5rem; */
         display: flex;
         align-items: center;
+        margin-bottom: 18px;
       }
      </style>
+     <div class="section1">
+      <div class="section2">
      <div class="container mb-2">
       <div class="filters-wrapper">
      <div id="filters">
@@ -93,11 +110,13 @@
         <div class="tax-toggle">
           <div class="form-check form-switch">
             <input class="form-check-input" type="checkbox" role="switch" id="switchCheckDefault">
-            <label class="form-check-label" for="switchCheckDefault">Adding After Taxes</label>
+            <label class="form-check-label" for="switchCheckDefault">Taxes</label>
           </div>
         </div>
       </div>
      </div>
+    </div>
+    </div>
 
    <div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1 mb-2">
     <% for(let listing of allListing){ %>
