@@ -3,6 +3,46 @@
     const mapToken = "<%= process.env.MAP_TOKEN %>";
     const coordinates = <%- JSON.stringify(listing.geometry.coordinates) %>;
 </script>
+
+<style>
+    .extra {
+        height: 300px;
+        width: 1300px;
+        display: flex;
+        margin-top: 30px;
+    }
+
+    .box1 {
+        width: 433px;
+        padding-right: 8px;
+    }
+
+    .box2 {
+        width: 433px;
+        padding-right: 8px;
+    }
+
+    .box3 {
+        width: 433px;
+    }
+
+    .input-group-extra {
+        font-size: 1.8rem;
+        margin-bottom: 10px;
+    }
+
+    .words {
+        font-size: 0.85rem;
+    }
+
+    .link-extra a{
+        color: gray;
+    }
+
+    .link-extra a:hover {
+        color: black;
+    }
+</style>
 <body>
     <div class="row mt-3">
         <!-- <div class="col-8 offset-3 mt-2">
@@ -21,7 +61,7 @@
                 <br>
                 <br>
                 <%= listing.description %> <br>
-                &#8377;<%= listing.price ? listing.price.toLocaleString("en-IN") : "N/A" %> <br>
+                &#8377;<b><%= listing.price ? listing.price.toLocaleString("en-IN") : "N/A" %></b> <br>
                 <%= listing.location %> <br>
                 <%= listing.country %> <br> 
             </p>
@@ -100,6 +140,69 @@
         <h3>Where you'll be</h3>
         <div id="map"></div>
     </div>
+
+    <div class="mb-5">
+        <hr>
+        <h3>Things to know</h3>
+        <div class="extra">
+            <div class="box1">
+                <p>HarHari</p>
+                <div class="input-group-extra">
+                    <i class="ph ph-key"></i>
+                </div>
+                
+                <h6>House Rule</h6>
+                <div class="words">
+                    <p>
+                        Check-in after 11:00 am <br>
+                        Checkout before 8:00 am <br>
+                        5 guests maximum
+                    </p>
+                </div>
+
+                <div class="link-extra">
+                    <a href="/">Learn more</a>
+                </div>
+            </div>
+
+            <div class="box2">
+                <p>HarHari</p>
+                <div class="input-group-extra">
+                    <i class="ph ph-shield"></i>
+                </div>
+                <h6>Safety & Property</h6>
+                <div class="words">
+                    <p>Carbon monoxide alarm not reported <br>
+                        Smoke alarm not reported <br>
+                        Exterior security cameras on property
+                    </p>
+                </div>
+                <div class="link-extra">
+                    <a href="/">Learn more</a>
+                </div>
+            </div>
+
+            <div class="box3">
+                <p>HarHari</p>
+                <div class="input-group-extra">
+                    <i class="ph ph-calendar"></i>
+                </div>
+                <h6>Cancellation policy</h6>
+                <div class="words">
+                    <p>
+                        Free cancellation before 11:00 am on particular date. <br>
+                        Cancel before check-in within one day for a partial refund. <br>
+                        Review this host's full policy for details.
+                    </p>
+                </div>
+                <div class="link-extra">
+                    <a href="/">Learn more</a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
 </div>
 
 
