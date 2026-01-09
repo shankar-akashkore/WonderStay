@@ -42,12 +42,37 @@
     .link-extra a:hover {
         color: black;
     }
+
+    .offer {
+        height: 260px;
+        width: 720px;
+        display: flex;
+    }
+
+    .offer1 {
+        height: 260px;
+        width: 360px;
+    }
+
+    .offer2 {
+        height: 260px;
+        width: 360px;
+    }
+
+    .offer-words {
+        display: flex;
+    }
+
+    .offer-words p{
+        font-size: 1.1rem;
+    }
+
+    .offer-p {
+        font-size: 1.6rem;
+    }
 </style>
 <body>
     <div class="row mt-3">
-        <!-- <div class="col-8 offset-3 mt-2">
-            <h3>All listing details</h3>
-        </div> -->
         <div class="col-8 offset-3 mt-2">
             <h3> <b> <%= listing.title %> </b> </h3>
         </div>
@@ -57,7 +82,7 @@
         <div class="card-body">
             <p class="card-text"> 
                 <b><%= listing.title %></b> <br>
-                <i>Owned by <%= listing.owner.username %></i>
+                <i>Hosted by <%= listing.owner.username %></i>
                 <br>
                 <br>
                 <%= listing.description %> <br>
@@ -136,13 +161,73 @@
         </div>
         <% } %>
     </div>
-    <div class="col-5 offset-3 mb-3">
-        <h3>Where you'll be</h3>
-        <div id="map"></div>
+    
+   <div class="col-5 offset-3 mb-2">
+    <h3>What this place offer</h3>
+    <br>
+    <div class="offer">
+        <div class="offer1">
+            <p>HarHari</p>
+            <div class="offer-p">
+                <div class="offer-words">
+                    <i class="ph ph-wifi-high"></i> &nbsp;&nbsp;&nbsp;<p>Wifi</p><br>
+                </div>
+                <div class="offer-words">
+                    <i class="ph ph-airplay"></i> &nbsp;&nbsp;&nbsp;<p>TV</p> <br>
+                </div>
+                <div class="offer-words">
+                    <i class="ph ph-elevator"></i> &nbsp;&nbsp;&nbsp;<p>Lift</p> <br>
+                </div>
+                <div class="offer-words">
+                    <i class="ph ph-car-profile"></i> &nbsp;&nbsp;&nbsp;<p>Pick & Drop</p><br>
+                </div>
+                <div class="offer-words">
+                    <i class="ph ph-washing-machine"></i> &nbsp;&nbsp;&nbsp;<p>Washing machine</p>
+                </div>
+        </div>
     </div>
 
-    <div class="mb-5">
-        <hr>
+        <div class="offer2">
+            <p>HarHari</p>
+            <div class="offer-p">
+                <div class="offer-words">
+                    <i class="ph ph-hair-dryer"></i> &nbsp;&nbsp;&nbsp;<p>Hair Dryer</p><br>
+                </div>
+                <div class="offer-words">
+                    <i class="ph ph-game-controller"></i> &nbsp;&nbsp;&nbsp;<p>Games</p><br>
+                </div>
+                <div class="offer-words">
+                    <i class="ph ph-speaker-hifi"></i> &nbsp;&nbsp;&nbsp;<p>Sounds Speaker</p><br>
+                </div>
+                <div class="offer-words">
+                    <i class="ph ph-dresser"></i> &nbsp;&nbsp;&nbsp;<p>Clothes storage: wardrobe</p>
+                </div>
+                <div class="offer-words">
+                    <i class="ph ph-calendar-blank"></i> &nbsp;&nbsp;&nbsp;<p>Long-term stays allowed</p> <br>
+                </div>
+            </div> 
+            </div>
+    </div>
+   </div>
+   <hr>
+   <br>
+   
+
+
+    <div class="row">
+        <div class="col-12 mb-3">
+            <h3>Where you'll be</h3> <br>
+            <p> <%= listing.location %> <br> </p>
+            <div id="map"></div>
+            <br>
+        </div>
+    </div>
+ 
+    <hr>
+
+    <br>
+    <br>
+    <div class="mb-5 ">
         <h3>Things to know</h3>
         <div class="extra">
             <div class="box1">
@@ -150,7 +235,7 @@
                 <div class="input-group-extra">
                     <i class="ph ph-key"></i>
                 </div>
-                
+
                 <h6>House Rule</h6>
                 <div class="words">
                     <p>
