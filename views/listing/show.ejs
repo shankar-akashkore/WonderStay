@@ -70,6 +70,122 @@
     .offer-p {
         font-size: 1.6rem;
     }
+
+    .host-details {
+        width: 1200px;
+        min-height: 500px;
+        display: flex;
+        gap:  60px;
+    }
+
+    .inner-host1,
+    .inner-host2 {
+        flex: 1;
+    }
+
+    .inner-host1 {
+        display: flex;
+        justify-content: flex-start;
+        padding-top: 60px;
+        padding-left: 80px;
+    }
+
+    .host-card {
+        height: 350px;
+        width: 360px;
+        padding: 24px;
+        border-radius: 20px;
+        background-color: #f5f5f5;
+        display: flex;
+        flex-direction: column;
+        gap:  24px;
+    }
+
+    .host-card-top {
+        display: flex;
+        gap: 20px;
+        align-items: center;
+    }
+
+    .host-avatar {
+        width: 104px;
+        height: 104px;
+        border-radius: 50%;
+        /* background-color: #ccc; */
+        background-image: url("/images/user.png");
+        background-size: cover;
+        margin-top: 20px;
+        margin-left: 30px;
+    }
+
+    .host-avatar h4 {
+        margin-top: 130px;
+        margin-left: 15px;
+    }
+
+    .host-stats {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        margin-left: 50px;
+        margin-top: 35px;
+    }
+
+    .stat strong {
+        font-size: 20px;
+        display: block;
+    }
+
+    .stat span {
+        font-size: 14px;
+        color: #666;
+    }
+
+    .host-card-bottom {
+        display: flex;
+        flex-direction:  column;
+        align-items: center;
+        gap: 6px;
+    }
+
+    .host-card-bottom h4 {
+        margin: 0;
+    }
+
+    .badge {
+        font-size: 14px;
+        color: #555;
+        margin-top: 55px;
+    }
+
+    .inner-host2 {
+        padding-top: 60px;
+        max-width: 520px;
+    }
+
+    .inner-host2 h4 {
+        margin-bottom: 12px;
+    }
+
+    .inner-host2 p {
+        margin-bottom:  16px;
+        line-height: 1.6;
+    }
+
+    .message-btn {
+        margin-top:  20px;
+        padding: 14px 24px;
+        border-radius: 12px;
+        border: none;
+        background-color: #eee;
+        cursor: pointer;
+    }
+
+    .message-btn a {
+        color: #555;
+        text-decoration: none;
+    }
+    
 </style>
 <body>
     <div class="row mt-3">
@@ -110,11 +226,7 @@
         <% if(currUser) { %>
         <h3>Add a Review</h3>
         <form action="/listings/<%= listing._id %>/reviews" method="POST" class="needs-validation"  novalidate>
-            <!-- <div class="mb-3 mt-3">
-                <label for="rating" class="form-label">Rating</label>
-                <input type="range" min="1" max="5" name="review[rating]" class="form-range"/>
-            </div> -->
-
+        
             <div class="mb-3 mt-3">
             <label for="rating" class="form-label">Rating</label>
             <fieldset class="starability-fade">
@@ -226,7 +338,54 @@
     <hr>
 
     <br>
-    <br>
+    <h3>Meet your host</h3>
+    <div class="host-details">
+        <div class="inner-host1">
+            <div class="host-card">
+                <div class="host-card-top">
+                    <div class="host-avatar">
+                        <h4><%= listing.owner.username %></h4>
+                    </div>
+                    <div class="host-stats">
+                        <div class="stat">
+                            <strong>141</strong>
+                            <span>Reviews</span>
+                        </div>
+
+                        <div class="stat">
+                            <strong>4.99 <i class="ph-fill ph-star"></i> </strong>
+                            <span>Rating</span>
+                        </div>
+
+                        <div class="stat">
+                            <strong>5+</strong>
+                            <span>Years hosting</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="host-card-bottom">
+                    <span class="badge"> <i class="ph ph-user-circle"></i> SuperHost</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="inner-host2">
+            <h4><%= listing.owner.username %> is a SuperHost</h4>
+            <p>
+                Superhosts are experienced, highly rated hosts who are committed
+                to providing great stays for guests.
+            </p>
+
+            <br>
+            <h4>Host Details</h4>
+            <p>Response rate: 100%</p>
+            <p>Response within an hour</p>
+            <button class="message-btn"><a href="https://mailto:shankarakashkore32@gmail.com">Message host</a></button>
+        </div>
+    </div>
+
+    <hr>
     <div class="mb-5 ">
         <h3>Things to know</h3>
         <div class="extra">
@@ -239,8 +398,8 @@
                 <h6>House Rule</h6>
                 <div class="words">
                     <p>
-                        Check-in after 11:00 am <br>
-                        Checkout before 8:00 am <br>
+                        Check-in after 11:00 am <br>
+                        Checkout before 8:00 am <br>
                         5 guests maximum
                     </p>
                 </div>
