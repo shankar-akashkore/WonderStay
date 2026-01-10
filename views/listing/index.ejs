@@ -2,7 +2,6 @@
 
 <body>
   <br>
-    <!-- <h3 class="mt-1">All listing</h3> -->
      <style>
       .section1 {
         margin-bottom: 20px;
@@ -11,7 +10,6 @@
       .section2 { 
         height: 80px;
         width: 1200px;
-        /* border: 1px solid black; */
         border-radius: 3rem;
         background-color: #eaecf38c;
       }
@@ -32,10 +30,12 @@
       }
       
       .filter{
+        color: rgb(168, 165, 165);
         text-align: center;
         margin-top: 1rem;
         margin-right: 2rem;
         opacity: 0.7;
+        text-decoration: none;
       }
 
       .filter:hover {
@@ -62,50 +62,75 @@
         border-radius: 1.5rem;
         height: 3rem;
         padding: 1rem;
-        /* margin-left: 5rem; */
         display: flex;
         align-items: center;
         margin-bottom: 18px;
       }
+
+      .filter.active {
+        color: black;
+        opacity: 0.8;
+        
+      }
+
+      .filter.active:hover {
+        opacity: 0.8;
+      }
+
+      .filter:visited {
+        color: inherit;
+      }
+       
      </style>
      <div class="section1">
       <div class="section2">
      <div class="container mb-2">
       <div class="filters-wrapper">
      <div id="filters">
-      <div class="filter">
+
+      <a href="/listings?category=Tending" class="filter <%= currentCategory = 'Tending' ? 'active' : '' %>">
         <div><i class="ph-bold ph-fire"></i></div>
         <p>Trending</p> 
-      </div>
-      <div class="filter">
-          <div><i class="ph-bold ph-island"></i></div>
-          <p>Beach</p> 
-        </div>
-      <div class="filter">
+      </a>
+
+      <a href="/listings?category=Beach" class="filter <%= currentCategory = 'Beach' ? 'active' : '' %>">
+        <div><i class="ph-bold ph-island"></i></div>
+        <p>Beach</p> 
+      </a>
+
+
+      <a href="/listings?category=Rooms" class="filter <%= currentCategory = 'Rooms' ? 'active' : '' %>">
           <div><i class="ph-bold ph-bed"></i></div>
           <p>Rooms</p> 
-        </div>
-        <div class="filter">
-          <div><i class="ph-bold ph-buildings"></i></div>
-          <p>Buildings</p> 
-        </div>
-        <div class="filter">
+      </a>
+
+      <a href="/listings?category=Buildings" class="filter <%= currentCategory = 'Buildings' ? 'active' : '' %>">
+        <div><i class="ph-bold ph-buildings"></i></div>
+        <p>Buildings</p> 
+      </a>
+
+      <a href="/listings?category=Pools" class="filter <%= currentCategory = 'Pools' ? 'active' : '' %>">
           <div><i class="ph-bold ph-person-simple-swim"></i></div>
           <p>Pools</p> 
-        </div>
-        <div class="filter">
-          <div><i class="ph-bold ph-mountains"></i></div>
-          <p>Mountains</p> 
-        </div>
-        <div class="filter">
-          <div><i class="ph-bold ph-snowflake"></i></div>
-          <p>Arctic</p> 
-        </div>
-        <div class="filter">
-          <div><i class="ph-bold ph-campfire"></i></div>
-          <p>Camping</p> 
-        </div>
-      </div>
+      </a>
+
+        
+      <a href="/listings?category=Mountains" class="filter <%= currentCategory = 'Mountains' ? 'active' : '' %>">
+        <div><i class="ph-bold ph-mountains"></i></div>
+        <p>Mountains</p> 
+      </a>
+
+      <a href="/listings?category=Arctic" class="filter <%= currentCategory = 'Arctic' ? 'active' : '' %>">
+        <div><i class="ph-bold ph-snowflake"></i></div>
+        <p>Arctic</p> 
+      </a>
+
+        
+      <a href="/listings?category=Camping" class="filter <%= currentCategory = 'Camping' ? 'active' : '' %>">
+        <div><i class="ph-bold ph-campfire"></i></div>
+        <p>Camping</p> 
+      </a>
+    </div>
 
         <div class="tax-toggle">
           <div class="form-check form-switch">
