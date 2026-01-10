@@ -93,12 +93,17 @@
     .host-card {
         height: 350px;
         width: 380px;
-        padding: 24px;
-        border-radius: 20px;
-        background-color: #f5f5f5;
+        /* padding: 24px; */
+        /* border-radius: 20px; */
+        /* background-color: #f5f5f5; */
         display: flex;
         flex-direction: column;
         gap:  24px;
+        border: 1px solid #ddd;
+        border-radius: 12px;
+        padding: 24px;
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+        background: white;
     }
 
     .host-card-top {
@@ -199,6 +204,8 @@
         padding: 24px;
         box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
         background: white;
+        width: 600px;
+        height: 500px;
     }
 
     .booking-header {
@@ -641,63 +648,75 @@
                 <% } %>
             </div>
 
-            <form action="=/booking" method="POST" class="booking-form" id="bookingForm">
-                <input type="hidden" name="listingId" value="<%= listing._id %>">
+            <% 
+  // Calculate today's date in YYYY-MM-DD format
+  const today = new Date();
+  const year = today.getFullYear();
+  const month = String(today.getMonth() + 1).padStart(2, '0');
+  const day = String(today.getDate()).padStart(2, '0');
+  const todayString = `${year}-${month}-${day}`;
+%>
 
-                <div class="date-inputs">
-                    <div class="input-group">
-                        <label for="checkIn">CHECK-IN</label>
-                        <input
-                            type="date"
-                            id="checkIn"
-                            name="checkIn"
-                            required
-                            min="<%= new Date().toISOString().split('T')[0] %>"
-                        >
-                    </div>
-                    <div class="input-group">
-                        <label for="checkOut">CHECKOUT</label>
-                        <input 
-                            type="date"
-                            id="checkOut"
-                            name="checkOut"
-                            required
-                            min="<%= new Date().toISOString.split('T')[0] %>"
-                        >
-                    </div>
-                </div>
+<form action="/bookings" method="POST" class="booking-form" id="bookingForm">
+    <input type="hidden" name="listingId" value="<%= listing._id %>">
+    
+    <div class="date-inputs">
+        <div class="input-group">
+            <label for="checkIn">CHECK-IN</label>
+            <input 
+                type="date" 
+                id="checkIn" 
+                name="checkIn" 
+                required
+                min="<%= todayString %>"
+            >
+        </div>
+        <div class="input-group">
+            <label for="checkOut">CHECKOUT</label>
+            <input 
+                type="date" 
+                id="checkOut" 
+                name="checkOut" 
+                required
+                min="<%= todayString %>"
+            >
+        </div>
+    </div>
 
-                <div class="input-group guests-input">
-                    <label for="guests">GUESTS</label>
-                    <select name="guests" id="guests" required>
-                        <% for(let i=1; i<=10; i++) { %>
-                            <option value="<%= i %>"><%= i %> guest<%= i > 1 ? 's' : '' %></option>
-                        <% } %>
-                    </select>
-                </div>
+    <div class="input-group guests-input">
+        <label for="guests">GUESTS</label>
+        <select name="guests" id="guests" required>
+            <% for(let i = 1; i <= 10; i++) { %>
+                <option value="<%= i %>"><%= i %> guest<%= i > 1 ? 's' : '' %></option>
+            <% } %>
+        </select>
+    </div>
 
-                <div id="priceBreakdown" class="price-breakdown" style="display: none;">
-                    <div class="price-row">
-                        <span>₹<%= listing.price.toLocaleString() %> x <span id="nightCount">0</span> nights</span>
-                        <span id="basePrice">₹0</span>
-                    </div>
-                    <div class="price-row total">
-                        <strong>Total</strong>
-                        <strong id="totalPrice">₹0</strong>
-                    </div>
-                </div>
+    <div id="priceBreakdown" class="price-breakdown" style="display: none;">
+        <div class="price-row">
+            <span>₹<%= listing.price.toLocaleString() %> x <span id="nightCount">0</span> nights</span>
+            <span id="basePrice">₹0</span>
+        </div>
+        <div class="price-row total">
+            <strong>Total</strong>
+            <strong id="totalPrice">₹0</strong>
+        </div>
+    </div>
 
-                <% if (currUser) { %>
-                    <button type="submit" class="reserve-btn">Reserve</button>
-                    <p class="no-charge-msg">You won't be charged yet</p>
-                <% } else { %>
-                    <a href="/login" class="reserve-btn">Log in to book</a>
-                <% } %>
-            </form>
-            <div id="availabilityMessage" class="availability-message" style="display: none;"></div>
+    <% if (currUser) { %>
+        <button type="submit" class="reserve-btn">Reserve</button>
+        <p class="no-charge-msg">You won't be charged yet</p>
+    <% } else { %>
+        <a href="/login" class="reserve-btn">Log in to book</a>
+    <% } %>
+</form>
+
+<div id="availabilityMessage" class="availability-message" style="display: none;"></div>
         </diV>
     </div>
 
+    
+    <br><br><br>
     <hr>
     <div class="mb-5 ">
         <h3>Things to know</h3>
