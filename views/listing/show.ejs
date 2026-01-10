@@ -72,7 +72,7 @@
     }
 
     .host-details {
-        width: 1200px;
+        width: 1000px;
         min-height: 500px;
         display: flex;
         gap:  60px;
@@ -92,7 +92,7 @@
 
     .host-card {
         height: 350px;
-        width: 360px;
+        width: 380px;
         padding: 24px;
         border-radius: 20px;
         background-color: #f5f5f5;
@@ -185,10 +185,212 @@
         color: #555;
         text-decoration: none;
     }
+
+    .booking-sidebar {
+        position: relative;
+    }
+
+    /* Booking Card Styles */
+    .booking-card {
+        position: sticky;
+        top: 100px;
+        border: 1px solid #ddd;
+        border-radius: 12px;
+        padding: 24px;
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+        background: white;
+    }
+
+    .booking-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 24px;
+        padding-bottom: 24px;
+        border-bottom: 1px solid #eee;
+    }
+
+    .price-section {
+        display: flex;
+        align-items: baseline;
+        gap: 4px;
+    }
+
+    .price {
+        font-size: 22px;
+        font-weight: 600;
+        color: #222;
+    }
+
+    .price-label {
+        font-size: 16px;
+        color: #717171;
+    }
+
+    .rating-section {
+        display: flex;
+        align-items: center;
+        gap: 4px;
+        font-size: 14px;
+    }
+
+    .rating-section .fa-star {
+        color: #ff385c;
+    }
+
+    .rating-value {
+        font-weight: 600;
+    }
+
+    .review-count {
+        color: #717171;
+        text-decoration: underline;
+    }
+
+    .booking-form {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    .date-inputs {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        border: 1px solid #b0b0b0;
+        border-radius: 8px;
+        overflow: hidden;
+    }
+
+    .input-group {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .date-inputs .input-group:first-child {
+        border-right: 1px solid #b0b0b0;
+    }
+
+    .input-group label {
+        font-size: 10px;
+        font-weight: 600;
+        color: #222;
+        padding: 8px 12px 0;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+
+    .input-group input,
+    .input-group select {
+        border: none;
+        padding: 4px 12px 12px;
+        font-size: 14px;
+        outline: none;
+        background: transparent;
+        font-family: inherit;
+    }
+
+    .guests-input {
+        border: 1px solid #b0b0b0;
+        border-radius: 8px;
+        cursor: pointer;
+    }
+
+    .guests-input select {
+        cursor: pointer;
+    }
+
+    .price-breakdown {
+        padding: 16px 0;
+        border-top: 1px solid #eee;
+        border-bottom: 1px solid #eee;
+    }
+
+    .price-row {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 12px;
+        color: #222;
+        font-size: 14px;
+    }
+
+    .price-row:last-child {
+        margin-bottom: 0;
+    }
+
+    .price-row.total {
+        margin-top: 16px;
+        padding-top: 16px;
+        border-top: 1px solid #eee;
+        font-size: 16px;
+    }
+
+    .reserve-btn {
+        background: linear-gradient(to right, #e61e4d 0%, #e31c5f 50%, #d70466 100%);
+        color: white;
+        padding: 14px;
+        border: none;
+        border-radius: 8px;
+        font-size: 16px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.2s;
+        text-align: center;
+        text-decoration: none;
+        display: block;
+    }
+
+    .reserve-btn:hover {
+        background: linear-gradient(to right, #d01346 0%, #ca1a56 50%, #c2045d 100%);
+        transform: scale(1.02);
+    }
+
+    .no-charge-msg {
+        text-align: center;
+        color: #717171;
+        font-size: 14px;
+        margin-top: 8px;
+    }
+
+    .availability-message {
+        margin-top: 12px;
+        padding: 12px;
+        border-radius: 8px;
+        font-size: 14px;
+        text-align: center;
+    }
+
+    .availability-message.error {
+        background: #fff0f0;
+        color: #c13515;
+        border: 1px solid #f1c6c1;
+    }
+
+    .availability-message.success {
+        background: #f0fff4;
+        color: #15803d;
+        border: 1px solid #c1f1d4;
+    }
+
+    /* Responsive */
+    @media (max-width: 1024px) {
+        .listing-grid {
+            grid-template-columns: 1fr;
+            gap: 40px;
+        }
+
+        .booking-card {
+            position: static;
+        }
+
+        .extra {
+            flex-direction: column;
+            height: auto;
+        }
+    }
     
 </style>
 <body>
-    <div class="row mt-3">
+    <!-- <div class="row mt-3">
         <div class="col-8 offset-3 mt-2">
             <h3> <b> <%= listing.title %> </b> </h3>
         </div>
@@ -207,7 +409,38 @@
                 <%= listing.country %> <br> 
             </p>
         </div>
-    </div>
+    </div> -->
+
+
+    <div class="listing-container">
+        <!-- Title -->
+        <div class="row mt-3">
+            <div class="col-12">
+                <h3><b><%= listing.title %></b></h3>
+            </div>
+        </div>
+
+        <!-- Two Column Layout Starts Here -->
+        <div class="listing-grid">
+            <!-- LEFT COLUMN - Main Content -->
+            <div class="listing-content">
+                <!-- Image Card -->
+                <div class="card show-card">
+                    <img src="<%= listing.image.url || listing.image%>" class="card-img-top show-img" alt="listingimage">
+                    <div class="card-body">
+                        <p class="card-text"> 
+                            <b><%= listing.title %></b> <br>
+                            <i>Hosted by <%= listing.owner.username %></i>
+                            <br><br>
+                            <%= listing.description %> <br>
+                            &#8377;<b><%= listing.price ? listing.price.toLocaleString("en-IN") : "N/A" %></b> <br>
+                            <%= listing.location %> <br>
+                            <%= listing.country %> <br> 
+                        </p>
+                    </div>
+                </div>
+
+
     <br>
 
     <% if(currUser && listing.owner._id.equals(currUser._id)) { %>
@@ -219,6 +452,60 @@
     </form>
     </div>
     <% } %>
+
+
+    <div class="col-5 offset-3 mb-2">
+        <h3>What this place offer</h3>
+        <br>
+        <div class="offer">
+            <div class="offer1">
+                <p>HarHari</p>
+                <div class="offer-p">
+                    <div class="offer-words">
+                        <i class="ph ph-wifi-high"></i> &nbsp;&nbsp;&nbsp;<p>Wifi</p><br>
+                    </div>
+                    <div class="offer-words">
+                        <i class="ph ph-airplay"></i> &nbsp;&nbsp;&nbsp;<p>TV</p> <br>
+                    </div>
+                    <div class="offer-words">
+                        <i class="ph ph-elevator"></i> &nbsp;&nbsp;&nbsp;<p>Lift</p> <br>
+                    </div>
+                    <div class="offer-words">
+                        <i class="ph ph-car-profile"></i> &nbsp;&nbsp;&nbsp;<p>Pick & Drop</p><br>
+                    </div>
+                    <div class="offer-words">
+                        <i class="ph ph-washing-machine"></i> &nbsp;&nbsp;&nbsp;<p>Washing machine</p>
+                    </div>
+            </div>
+        </div>
+    
+            <div class="offer2">
+                <p>HarHari</p>
+                <div class="offer-p">
+                    <div class="offer-words">
+                        <i class="ph ph-hair-dryer"></i> &nbsp;&nbsp;&nbsp;<p>Hair Dryer</p><br>
+                    </div>
+                    <div class="offer-words">
+                        <i class="ph ph-game-controller"></i> &nbsp;&nbsp;&nbsp;<p>Games</p><br>
+                    </div>
+                    <div class="offer-words">
+                        <i class="ph ph-speaker-hifi"></i> &nbsp;&nbsp;&nbsp;<p>Sounds Speaker</p><br>
+                    </div>
+                    <div class="offer-words">
+                        <i class="ph ph-dresser"></i> &nbsp;&nbsp;&nbsp;<p>Clothes storage: wardrobe</p>
+                    </div>
+                    <div class="offer-words">
+                        <i class="ph ph-calendar-blank"></i> &nbsp;&nbsp;&nbsp;<p>Long-term stays allowed</p> <br>
+                    </div>
+                </div> 
+                </div>
+        </div>
+       </div>
+
+
+
+
+
     
 
     <div class="col-5 offset-3 mb-3">
@@ -273,54 +560,6 @@
         </div>
         <% } %>
     </div>
-    
-   <div class="col-5 offset-3 mb-2">
-    <h3>What this place offer</h3>
-    <br>
-    <div class="offer">
-        <div class="offer1">
-            <p>HarHari</p>
-            <div class="offer-p">
-                <div class="offer-words">
-                    <i class="ph ph-wifi-high"></i> &nbsp;&nbsp;&nbsp;<p>Wifi</p><br>
-                </div>
-                <div class="offer-words">
-                    <i class="ph ph-airplay"></i> &nbsp;&nbsp;&nbsp;<p>TV</p> <br>
-                </div>
-                <div class="offer-words">
-                    <i class="ph ph-elevator"></i> &nbsp;&nbsp;&nbsp;<p>Lift</p> <br>
-                </div>
-                <div class="offer-words">
-                    <i class="ph ph-car-profile"></i> &nbsp;&nbsp;&nbsp;<p>Pick & Drop</p><br>
-                </div>
-                <div class="offer-words">
-                    <i class="ph ph-washing-machine"></i> &nbsp;&nbsp;&nbsp;<p>Washing machine</p>
-                </div>
-        </div>
-    </div>
-
-        <div class="offer2">
-            <p>HarHari</p>
-            <div class="offer-p">
-                <div class="offer-words">
-                    <i class="ph ph-hair-dryer"></i> &nbsp;&nbsp;&nbsp;<p>Hair Dryer</p><br>
-                </div>
-                <div class="offer-words">
-                    <i class="ph ph-game-controller"></i> &nbsp;&nbsp;&nbsp;<p>Games</p><br>
-                </div>
-                <div class="offer-words">
-                    <i class="ph ph-speaker-hifi"></i> &nbsp;&nbsp;&nbsp;<p>Sounds Speaker</p><br>
-                </div>
-                <div class="offer-words">
-                    <i class="ph ph-dresser"></i> &nbsp;&nbsp;&nbsp;<p>Clothes storage: wardrobe</p>
-                </div>
-                <div class="offer-words">
-                    <i class="ph ph-calendar-blank"></i> &nbsp;&nbsp;&nbsp;<p>Long-term stays allowed</p> <br>
-                </div>
-            </div> 
-            </div>
-    </div>
-   </div>
    <hr>
    <br>
    
@@ -383,6 +622,80 @@
             <p>Response within an hour</p>
             <button class="message-btn"><a href="https://mailto:shankarakashkore32@gmail.com">Message host</a></button>
         </div>
+    </div>
+    <hr>
+
+    <div class="booking-sidebar">
+        <diV class="booking-card">
+            <div class="booking-header">
+                <div class="price-section">
+                    <span class="price">₹<%= listing.price.toLocaleString() %></span>
+                    <span class="price-label">per night</span>
+                </div>
+                <% if (listing.reviews && listing.reviews.length > 0) { %>
+                    <div class="rating-section">
+                        <i class="fas fa-star"></i>
+                        <span class="rating-value"><%= (listing.reviews.reduce((sum, r) => sum + r.rating, 0) / listing.reviews.length).toFixed(2) %></span>
+                        <span class="review-count">(<%= listing.reviews.length %> reviews)</span>
+                    </div>
+                <% } %>
+            </div>
+
+            <form action="=/booking" method="POST" class="booking-form" id="bookingForm">
+                <input type="hidden" name="listingId" value="<%= listing._id %>">
+
+                <div class="date-inputs">
+                    <div class="input-group">
+                        <label for="checkIn">CHECK-IN</label>
+                        <input
+                            type="date"
+                            id="checkIn"
+                            name="checkIn"
+                            required
+                            min="<%= new Date().toISOString().split('T')[0] %>"
+                        >
+                    </div>
+                    <div class="input-group">
+                        <label for="checkOut">CHECKOUT</label>
+                        <input 
+                            type="date"
+                            id="checkOut"
+                            name="checkOut"
+                            required
+                            min="<%= new Date().toISOString.split('T')[0] %>"
+                        >
+                    </div>
+                </div>
+
+                <div class="input-group guests-input">
+                    <label for="guests">GUESTS</label>
+                    <select name="guests" id="guests" required>
+                        <% for(let i=1; i<=10; i++) { %>
+                            <option value="<%= i %>"><%= i %> guest<%= i > 1 ? 's' : '' %></option>
+                        <% } %>
+                    </select>
+                </div>
+
+                <div id="priceBreakdown" class="price-breakdown" style="display: none;">
+                    <div class="price-row">
+                        <span>₹<%= listing.price.toLocaleString() %> x <span id="nightCount">0</span> nights</span>
+                        <span id="basePrice">₹0</span>
+                    </div>
+                    <div class="price-row total">
+                        <strong>Total</strong>
+                        <strong id="totalPrice">₹0</strong>
+                    </div>
+                </div>
+
+                <% if (currUser) { %>
+                    <button type="submit" class="reserve-btn">Reserve</button>
+                    <p class="no-charge-msg">You won't be charged yet</p>
+                <% } else { %>
+                    <a href="/login" class="reserve-btn">Log in to book</a>
+                <% } %>
+            </form>
+            <div id="availabilityMessage" class="availability-message" style="display: none;"></div>
+        </diV>
     </div>
 
     <hr>
@@ -449,7 +762,119 @@
 
 </div>
 
-
 <script src="/js/map.js"></script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const checkInInput = document.getElementById('checkIn');
+        const checkOutInput = document.getElementById('checkOut');
+        const priceBreakdown = document.getElementById('priceBreakdown');
+        const nightCount = document.getElementById('nightCount');
+        const basePrice = document.getElementById('basePrice');
+        const totalPrice = document.getElementById('totalPrice');
+        const availabilityMessage = document.getElementById('availabilityMessage');
+        const bookingForm = document.getElementById('bookingForm');
+        
+        const pricePerNight = <%= listing.price %>;
+        const listingId = '<%= listing._id %>';
+
+        checkInInput.addEventListener('change', function() {
+            const checkInDate = new Date(this.value);
+            checkInDate.setDate(checkInDate.getDate() + 1);
+            checkOutInput.min = checkInDate.toISOString().split('T')[0];
+            
+            if (checkOutInput.value && new Date(checkOutInput.value) <= new Date(this.value)) {
+                checkOutInput.value = '';
+            }
+            
+            calculatePrice();
+            checkAvailability();
+        });
+
+        checkOutInput.addEventListener('change', function() {
+            calculatePrice();
+            checkAvailability();
+        });
+
+        function calculatePrice() {
+            const checkIn = checkInInput.value;
+            const checkOut = checkOutInput.value;
+
+            if (checkIn && checkOut) {
+                const start = new Date(checkIn);
+                const end = new Date(checkOut);
+                const nights = Math.ceil((end - start) / (1000 * 60 * 60 * 24));
+
+                if (nights > 0) {
+                    const total = pricePerNight * nights;
+                    nightCount.textContent = nights;
+                    basePrice.textContent = '₹' + total.toLocaleString();
+                    totalPrice.textContent = '₹' + total.toLocaleString();
+                    priceBreakdown.style.display = 'block';
+                } else {
+                    priceBreakdown.style.display = 'none';
+                }
+            } else {
+                priceBreakdown.style.display = 'none';
+            }
+        }
+
+        async function checkAvailability() {
+            const checkIn = checkInInput.value;
+            const checkOut = checkOutInput.value;
+
+            if (checkIn && checkOut) {
+                try {
+                    const response = await fetch('/bookings/check-availability', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({
+                            listingId: listingId,
+                            checkIn: checkIn,
+                            checkOut: checkOut
+                        })
+                    });
+
+                    const data = await response.json();
+                    
+                    if (data.available) {
+                        availabilityMessage.textContent = '✓ Available for your dates';
+                        availabilityMessage.className = 'availability-message success';
+                    } else {
+                        availabilityMessage.textContent = '✗ Not available for selected dates';
+                        availabilityMessage.className = 'availability-message error';
+                    }
+                    availabilityMessage.style.display = 'block';
+                } catch (error) {
+                    console.error('Error checking availability:', error);
+                }
+            } else {
+                availabilityMessage.style.display = 'none';
+            }
+        }
+
+        bookingForm.addEventListener('submit', function(e) {
+            const checkIn = checkInInput.value;
+            const checkOut = checkOutInput.value;
+
+            if (!checkIn || !checkOut) {
+                e.preventDefault();
+                alert('Please select check-in and check-out dates');
+                return;
+            }
+
+            const start = new Date(checkIn);
+            const end = new Date(checkOut);
+            
+            if (end <= start) {
+                e.preventDefault();
+                alert('Check-out date must be after check-in date');
+                return;
+            }
+        });
+    });
+    </script>
 </body>
 
