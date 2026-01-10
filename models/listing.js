@@ -59,6 +59,14 @@ const listingSchema = new Schema({
         type: String,
         required: true,
     },
+    host: {
+        type: String,
+        required: true,
+    },
+    hostrating: {
+        type: Number,
+        required: true,
+    },
     reviews: [
         {
             type: Schema.Types.ObjectId,

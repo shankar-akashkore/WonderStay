@@ -12,3 +12,13 @@ const marker = new mapboxgl.Marker({color: "red"})
     new mapboxgl.Popup({offset: 25,}).setHTML("<h5>Exact Location</h5>")
 )
 .addTo(map);
+
+map.scrollZoom.disable();
+
+map.on('click', () => {
+    map.scrollZoom.enable();
+});
+
+map.on('mouseleave', () => {
+    map.scrollZoom.disable();
+});
