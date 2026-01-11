@@ -88,6 +88,10 @@ app.get("/" , (req,res) => {
     res.send("Hi this is HarHari");
 });
 
+app.get("/bookingdone", (req,res) => {
+    res.send("<h1>Booking Confirmed</h1>")
+});
+
 app.use("/listings",listingsRouter);
 app.use("/listings/:id/reviews",reviewsRouter);
 app.use("/",userRouter);
@@ -102,6 +106,10 @@ app.use((err,req,res,next) => {
     let message = err.message || "Something went wrong";
     res.status(status).render("error", {message})
 });
+
+app.get("/privacy",(req,res) => {
+    res.send("HAR HAR MAHADEVA")
+})
 
 app.listen(6060, () => {
     console.log("port is running 6060")

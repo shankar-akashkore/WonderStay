@@ -249,3 +249,8 @@
     -webkit-animation-fill-mode: forwards;
             animation-fill-mode: forwards;
   }
+
+  .starability-result {
+    transform: scale(0.5);   /* 👈 adjust: 0.6 / 0.7 / 0.8 */
+    transform-origin: left center;
+  }

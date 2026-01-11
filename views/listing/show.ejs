@@ -6,24 +6,17 @@
 
 <style>
     .extra {
-        height: 300px;
-        width: 1300px;
+        height: auto;
+        width: 100%;
+        max-width: 1300px;
         display: flex;
         margin-top: 30px;
+        gap: 8px;
     }
 
-    .box1 {
-        width: 433px;
-        padding-right: 8px;
-    }
-
-    .box2 {
-        width: 433px;
-        padding-right: 8px;
-    }
-
-    .box3 {
-        width: 433px;
+    .box1, .box2, .box3 {
+        flex: 1;
+        min-width: 0;
     }
 
     .input-group-extra {
@@ -35,7 +28,7 @@
         font-size: 0.85rem;
     }
 
-    .link-extra a{
+    .link-extra a {
         color: gray;
     }
 
@@ -44,27 +37,24 @@
     }
 
     .offer {
-        height: 260px;
-        width: 720px;
         display: flex;
+        gap: 20px;
+        margin-top: 20px;
     }
 
-    .offer1 {
-        height: 260px;
-        width: 360px;
-    }
-
-    .offer2 {
-        height: 260px;
-        width: 360px;
+    .offer1, .offer2 {
+        flex: 1;
     }
 
     .offer-words {
         display: flex;
+        align-items: center;
+        margin-bottom: 10px;
     }
 
-    .offer-words p{
+    .offer-words p {
         font-size: 1.1rem;
+        margin: 0;
     }
 
     .offer-p {
@@ -72,14 +62,15 @@
     }
 
     .host-details {
-        width: 1000px;
+        width: 100%;
+        max-width: 1000px;
         min-height: 500px;
         display: flex;
-        gap:  60px;
+        gap: 60px;
+        margin-top: 40px;
     }
 
-    .inner-host1,
-    .inner-host2 {
+    .inner-host1, .inner-host2 {
         flex: 1;
     }
 
@@ -87,18 +78,15 @@
         display: flex;
         justify-content: flex-start;
         padding-top: 60px;
-        padding-left: 80px;
     }
 
     .host-card {
         height: 350px;
-        width: 380px;
-        /* padding: 24px; */
-        /* border-radius: 20px; */
-        /* background-color: #f5f5f5; */
+        width: 100%;
+        max-width: 380px;
         display: flex;
         flex-direction: column;
-        gap:  24px;
+        gap: 24px;
         border: 1px solid #ddd;
         border-radius: 12px;
         padding: 24px;
@@ -116,24 +104,20 @@
         width: 104px;
         height: 104px;
         border-radius: 50%;
-        /* background-color: #ccc; */
         background-image: url("/images/user.png");
         background-size: cover;
-        margin-top: 20px;
-        margin-left: 30px;
+        flex-shrink: 0;
     }
 
     .host-avatar h4 {
-        margin-top: 130px;
-        margin-left: 15px;
+        margin-top: 120px;
+        text-align: center;
     }
 
     .host-stats {
         display: flex;
         flex-direction: column;
         gap: 12px;
-        margin-left: 50px;
-        margin-top: 35px;
     }
 
     .stat strong {
@@ -148,24 +132,19 @@
 
     .host-card-bottom {
         display: flex;
-        flex-direction:  column;
+        flex-direction: column;
         align-items: center;
         gap: 6px;
-    }
-
-    .host-card-bottom h4 {
-        margin: 0;
+        margin-top: auto;
     }
 
     .badge {
         font-size: 14px;
         color: #555;
-        margin-top: 55px;
     }
 
     .inner-host2 {
         padding-top: 60px;
-        max-width: 520px;
     }
 
     .inner-host2 h4 {
@@ -173,12 +152,12 @@
     }
 
     .inner-host2 p {
-        margin-bottom:  16px;
+        margin-bottom: 16px;
         line-height: 1.6;
     }
 
     .message-btn {
-        margin-top:  20px;
+        margin-top: 20px;
         padding: 14px 24px;
         border-radius: 12px;
         border: none;
@@ -191,21 +170,16 @@
         text-decoration: none;
     }
 
-    .booking-sidebar {
-        position: relative;
-    }
-
-    /* Booking Card Styles */
     .booking-card {
-        position: sticky;
+        /* position: sticky; */
         top: 100px;
         border: 1px solid #ddd;
         border-radius: 12px;
         padding: 24px;
         box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
         background: white;
-        width: 600px;
-        height: 500px;
+        width: 100%;
+        max-width: 600px;
     }
 
     .booking-header {
@@ -219,7 +193,7 @@
 
     .price-section {
         display: flex;
-        align-items: baseline;
+        flex-direction: column;
         gap: 4px;
     }
 
@@ -332,7 +306,7 @@
     }
 
     .reserve-btn {
-        background: linear-gradient(to right, #e61e4d 0%, #e31c5f 50%, #d70466 100%);
+        background: #fe424d;
         color: white;
         padding: 14px;
         border: none;
@@ -347,8 +321,7 @@
     }
 
     .reserve-btn:hover {
-        background: linear-gradient(to right, #d01346 0%, #ca1a56 50%, #c2045d 100%);
-        /* transform: scale(1.02); */
+        background: #d01346;
     }
 
     .no-charge-msg {
@@ -378,33 +351,11 @@
         border: 1px solid #c1f1d4;
     }
 
-    /* Responsive */
-    @media (max-width: 1024px) {
-        .listing-grid {
-            grid-template-columns: 1fr;
-            gap: 40px;
-        }
-
-        .booking-card {
-            position: static;
-        }
-
-        .extra {
-            flex-direction: column;
-            height: auto;
-        }
-    }
-
     .rating-holds {
-        /* border: solid black 1px; */
-        /* padding-left: 550px; */
+        display: flex;
         align-items: center;
         justify-content: center;
-        display: flex;
-    }
-
-    .rating-holds span {
-        size: 3.2rem;
+        margin: 20px 0;
     }
 
     .rating-icon {
@@ -413,10 +364,10 @@
 
     .rating-star-holds {
         font-size: 2.7rem;
+        margin: 0 10px;
     }
 
     .rating-docs {
-        /* border: solid black 1px; */
         display: flex;
         align-items: center;
         justify-content: center;
@@ -426,6 +377,7 @@
         display: flex;
         align-items: center;
         justify-content: center;
+        margin-bottom: 20px;
     }
 
     .rating-docs-p p {
@@ -433,33 +385,86 @@
     }
 
     .rating-compontes {
-        border: solid black 1px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 30px;
+        margin-top: 20px;
+        flex-wrap: wrap;
     }
-    
+
+    .rating-boxs {
+        padding: 0 20px;
+    }
+
+    .rating-boxs:not(:first-child) {
+        border-left: 1px solid #e0e0e0;
+    }
+
+    .ratting-box1, .ratting-box2, .ratting-box3, 
+    .ratting-box4, .ratting-box5, .ratting-box6 {
+        height: 110px;
+        width: 130px;
+    }
+
+    .rating-box-icon {
+        font-size: 1.6rem;
+        padding-left: 5px;
+    }
+
+    .all-review-section {
+        padding: 20px;
+    }
+
+    .card-review {
+        border: 1px solid #eee;
+        border-radius: 8px;
+        padding: 15px;
+        margin-bottom: 15px;
+    }
+
+    .listing-grid {
+        display: grid;
+        grid-template-columns: 1fr 600px;
+        gap: 40px;
+        margin-top: 20px;
+    }
+
+    @media (max-width: 1024px) {
+        .listing-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .booking-card {
+            position: static;
+            max-width: 100%;
+        }
+
+        .extra {
+            flex-direction: column;
+        }
+
+        .offer {
+            flex-direction: column;
+        }
+
+        .host-details {
+            flex-direction: column;
+        }
+
+        .rating-compontes {
+            flex-direction: column;
+        }
+
+        .rating-boxs:not(:first-child) {
+            border-left: none;
+            border-top: 1px solid #e0e0e0;
+            padding-top: 20px;
+        }
+    }
 </style>
+
 <body>
-    <!-- <div class="row mt-3">
-        <div class="col-8 offset-3 mt-2">
-            <h3> <b> <%= listing.title %> </b> </h3>
-        </div>
-    <div class="card col-6 offset-3 mt-2 show card">
-        
-        <img src="<%= listing.image.url || listing.image%>" class="card-img-top show-img" alt="listingimage">
-        <div class="card-body">
-            <p class="card-text"> 
-                <b><%= listing.title %></b> <br>
-                <i>Hosted by <%= listing.owner.username %></i>
-                <br>
-                <br>
-                <%= listing.description %> <br>
-                &#8377;<b><%= listing.price ? listing.price.toLocaleString("en-IN") : "N/A" %></b> <br>
-                <%= listing.location %> <br>
-                <%= listing.country %> <br> 
-            </p>
-        </div>
-    </div> -->
-
-
     <div class="listing-container">
         <!-- Title -->
         <div class="row mt-3">
@@ -468,7 +473,7 @@
             </div>
         </div>
 
-        <!-- Two Column Layout Starts Here -->
+        <!-- Two Column Layout -->
         <div class="listing-grid">
             <!-- LEFT COLUMN - Main Content -->
             <div class="listing-content">
@@ -488,493 +493,517 @@
                     </div>
                 </div>
 
+                <br>
 
-    <br>
-
-    <% if(currUser && listing.owner._id.equals(currUser._id)) { %>
-    <div class="btns">
-        <a href="/listings/<%= listing._id %>/edit" 
-            class="btn col-1 offset-0 btn-show">Edit</a>
-        <form method="POST" action="/listings/<%=listing._id%>?_method=DELETE">
-        <button class="btn btn-dark offset-4">Delete</button>
-    </form>
-    </div>
-    <% } %>
-
-    <br>
-    <hr>
-    <br>
-    <div class="col-5 offset-0 mb-2">
-        <h3>What this place offer</h3>
-        <br><br>
-        <div class="offer">
-            <div class="offer1">
-                <p>HarHari</p>
-                <div class="offer-p">
-                    <div class="offer-words">
-                        <i class="ph ph-wifi-high"></i> &nbsp;&nbsp;&nbsp;<p>Wifi</p><br>
-                    </div>
-                    <div class="offer-words">
-                        <i class="ph ph-airplay"></i> &nbsp;&nbsp;&nbsp;<p>TV</p> <br>
-                    </div>
-                    <div class="offer-words">
-                        <i class="ph ph-elevator"></i> &nbsp;&nbsp;&nbsp;<p>Lift</p> <br>
-                    </div>
-                    <div class="offer-words">
-                        <i class="ph ph-car-profile"></i> &nbsp;&nbsp;&nbsp;<p>Pick & Drop</p><br>
-                    </div>
-                    <div class="offer-words">
-                        <i class="ph ph-washing-machine"></i> &nbsp;&nbsp;&nbsp;<p>Washing machine</p>
-                    </div>
-            </div>
-        </div>
-    
-            <div class="offer2">
-                <p>HarHari</p>
-                <div class="offer-p">
-                    <div class="offer-words">
-                        <i class="ph ph-hair-dryer"></i> &nbsp;&nbsp;&nbsp;<p>Hair Dryer</p><br>
-                    </div>
-                    <div class="offer-words">
-                        <i class="ph ph-game-controller"></i> &nbsp;&nbsp;&nbsp;<p>Games</p><br>
-                    </div>
-                    <div class="offer-words">
-                        <i class="ph ph-speaker-hifi"></i> &nbsp;&nbsp;&nbsp;<p>Sounds Speaker</p><br>
-                    </div>
-                    <div class="offer-words">
-                        <i class="ph ph-dresser"></i> &nbsp;&nbsp;&nbsp;<p>Clothes storage: wardrobe</p>
-                    </div>
-                    <div class="offer-words">
-                        <i class="ph ph-calendar-blank"></i> &nbsp;&nbsp;&nbsp;<p>Long-term stays allowed</p> <br>
-                    </div>
-                </div> 
-                </div>
-        </div>
-       </div>
-
-
-       <br>
-       <hr>
-       <br>
-
-
-
-       <div class="booking-sidebar">
-        <diV class="booking-card">
-            <div class="booking-header">
-                <div class="price-section">
-                    <span>Add dates for price</span> <br>
-                    <span class="price">₹<%= listing.price.toLocaleString() %></span>
-                    <span class="price-label">per night</span>
-                </div>
-                <% if (listing.reviews && listing.reviews.length > 0) { %>
-                    <div class="rating-section">
-                        <i class="fas fa-star"></i>
-                        <span class="rating-value"><%= (listing.reviews.reduce((sum, r) => sum + r.rating, 0) / listing.reviews.length).toFixed(2) %></span>
-                        <span class="review-count">(<%= listing.reviews.length %> reviews)</span>
-                    </div>
-                <% } %>
-            </div>
-
-            <% 
-  // Calculate today's date in YYYY-MM-DD format
-  const today = new Date();
-  const year = today.getFullYear();
-  const month = String(today.getMonth() + 1).padStart(2, '0');
-  const day = String(today.getDate()).padStart(2, '0');
-  const todayString = `${year}-${month}-${day}`;
-%>
-
-<form action="/bookings" method="POST" class="booking-form" id="bookingForm">
-    <input type="hidden" name="listingId" value="<%= listing._id %>">
-    
-    <div class="date-inputs">
-        <div class="input-group">
-            <label for="checkIn">CHECK-IN</label>
-            <input 
-                type="date" 
-                id="checkIn" 
-                name="checkIn" 
-                required
-                min="<%= todayString %>"
-            >
-        </div>
-        <div class="input-group">
-            <label for="checkOut">CHECKOUT</label>
-            <input 
-                type="date" 
-                id="checkOut" 
-                name="checkOut" 
-                required
-                min="<%= todayString %>"
-            >
-        </div>
-    </div>
-
-    <div class="input-group guests-input">
-        <label for="guests">GUESTS</label>
-        <select name="guests" id="guests" required>
-            <% for(let i = 1; i <= 10; i++) { %>
-                <option value="<%= i %>"><%= i %> guest<%= i > 1 ? 's' : '' %></option>
-            <% } %>
-        </select>
-    </div>
-
-    <div id="priceBreakdown" class="price-breakdown" style="display: none;">
-        <div class="price-row">
-            <span>₹<%= listing.price.toLocaleString() %> x <span id="nightCount">0</span> nights</span>
-            <span id="basePrice">₹0</span>
-        </div>
-        <div class="price-row total">
-            <strong>Total</strong>
-            <strong id="totalPrice">₹0</strong>
-        </div>
-    </div>
-
-    <% if (currUser) { %>
-        <button type="submit" class="reserve-btn">Reserve</button>
-        <p class="no-charge-msg">You won't be charged yet</p>
-    <% } else { %>
-        <a href="/login" class="reserve-btn">Log in to book</a>
-    <% } %>
-</form>
-
-<div id="availabilityMessage" class="availability-message" style="display: none;"></div>
-        </diV>
-    </div>
-    <br><br>
-
-
-    <hr>
-    <div class=" mb-3">
-        <div class="rating-holds">
-            <div class="rating-icon">
-                <i class="ph ph-caret-double-left"></i> 
-            </div> &nbsp;&nbsp;
-
-            <div class="rating-star-holds">
-                <span class="rating-value"><%= (listing.reviews.reduce((sum, r) => sum + r.rating, 0) / listing.reviews.length).toFixed(2) %></span>
-            </div>&nbsp;&nbsp;
-
-            <div class="rating-icon">
-                <i class="ph ph-caret-double-right"></i>
-            </div>
-        </div>
-        <div class="rating-docs">
-            <h4>Guest favourite</h4>
-        </div>
-        <div class="rating-docs-p">
-            <p>This home is a guest favourite based on ratings, reviews and reliability</p>
-        </div>
-
-        <div class="rating-compontes">
-            <div class="ratting-box1"></div>
-            <div class="ratting-box2"></div>
-            <div class="ratting-box3"></div>
-            <div class="ratting-box4"></div>
-            <div class="ratting-box5"></div>
-            <div class="ratting-box6"></div>
-        </div>
-    </div>
-
-    <div class="col-5 offset-0 mb-3">
-        <hr>
-        <% if(currUser) { %>
-        <h3>Reviews</h3>
-        <form action="/listings/<%= listing._id %>/reviews" method="POST" class="needs-validation"  novalidate>
-        
-            <div class="mb-3 mt-3">
-            <label for="rating" class="form-label">Rating</label>
-            <fieldset class="starability-fade">
-                <input type="radio" id="no-rate" class="input-no-rate" name="review[rating]" value="1" checked aria-label="No rating." />
-                <input type="radio" id="first-rate1" name="review[rating]" value="1" />
-                <label for="first-rate1" title="Terrible">1 star</label>
-                <input type="radio" id="first-rate2" name="review[rating]" value="2" />
-                <label for="first-rate2" title="Not good">2 stars</label>
-                <input type="radio" id="first-rate3" name="review[rating]" value="3" />
-                <label for="first-rate3" title="Average">3 stars</label>
-                <input type="radio" id="first-rate4" name="review[rating]" value="4" />
-                <label for="first-rate4" title="Very good">4 stars</label>
-                <input type="radio" id="first-rate5" name="review[rating]" value="5" />
-                <label for="first-rate5" title="Amazing">5 stars</label>
-              </fieldset>
-            </div>
-
-            <div class="mb-3 mt-3">
-                <label for="comment" class="form-label">Comments</label>
-                <textarea name="review[comment]" id="comment" cols="30" rows="5" class="form-control" required></textarea>
-            <div class="invalid-feedback">Please add the Comments</div>
-            </div>
-            <button class="btn btn-outline-dark">Submit</button>
-        </form>
-        <hr> 
-        <% } %> 
-
-        
-        <% if(listing.reviews.length > 0) { %>
-        <div class="row">
-            <p><b>All Reviews</b></p>
-            <% for(review of listing.reviews) { %>
-                <div class="card-review col-5.5 ms-3 mb-3">
-                    <div class="card-body">
-                        <h5 class="card-title mb-2"> @ <%= review.author.username %></h5>
-                        <p class="starability-result card-text" data-rating="<%= review.rating %>"></p>
-                        <p class="card-text"> <%= review.comment %> </p>
-                    </div>
-                    <form class="mb-3 mt-2" method="POST" action="/listings/<%= listing._id %>/reviews/<%= review._id %>?_method=DELETE">
-                        <button class="btn btn-sm btn-dark">Delete</button>
+                <!-- Edit/Delete Buttons -->
+                <% if(currUser && listing.owner._id.equals(currUser._id)) { %>
+                <div class="btns">
+                    <a href="/listings/<%= listing._id %>/edit" class="btn col-1 offset-0 btn-show">Edit</a>
+                    <form method="POST" action="/listings/<%=listing._id%>?_method=DELETE">
+                        <button class="btn btn-dark offset-4">Delete</button>
                     </form>
                 </div>
                 <% } %>
-        </div>
-        <% } %>
-    </div>
-   <hr>
-   <br>
-   
 
+                <br>
+                <hr>
+                <br>
 
-    <div class="row">
-        <div class="col-12 mb-3">
-            <h3>Where you'll be</h3> <br>
-            <p> <%= listing.location %> <br> </p>
-            <div id="map"></div>
-            <br>
-        </div>
-    </div>
- 
-    <hr>
-
-    <br>
-    <h3>Meet your host</h3>
-    <div class="host-details">
-        <div class="inner-host1">
-            <div class="host-card">
-                <div class="host-card-top">
-                    <div class="host-avatar">
-                        <h4><%= listing.owner.username %></h4>
+                <!-- What this place offers -->
+                <div class="mb-5">
+                    <h3>What this place offers</h3>
+                    <div class="offer">
+                        <div class="offer1">
+                            <div class="offer-p">
+                                <div class="offer-words">
+                                    <i class="ph ph-wifi-high"></i> &nbsp;&nbsp;&nbsp;<p>Wifi</p>
+                                </div>
+                                <div class="offer-words">
+                                    <i class="ph ph-airplay"></i> &nbsp;&nbsp;&nbsp;<p>TV</p>
+                                </div>
+                                <div class="offer-words">
+                                    <i class="ph ph-elevator"></i> &nbsp;&nbsp;&nbsp;<p>Lift</p>
+                                </div>
+                                <div class="offer-words">
+                                    <i class="ph ph-car-profile"></i> &nbsp;&nbsp;&nbsp;<p>Pick & Drop</p>
+                                </div>
+                                <div class="offer-words">
+                                    <i class="ph ph-washing-machine"></i> &nbsp;&nbsp;&nbsp;<p>Washing machine</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="offer2">
+                            <div class="offer-p">
+                                <div class="offer-words">
+                                    <i class="ph ph-hair-dryer"></i> &nbsp;&nbsp;&nbsp;<p>Hair Dryer</p>
+                                </div>
+                                <div class="offer-words">
+                                    <i class="ph ph-game-controller"></i> &nbsp;&nbsp;&nbsp;<p>Games</p>
+                                </div>
+                                <div class="offer-words">
+                                    <i class="ph ph-speaker-hifi"></i> &nbsp;&nbsp;&nbsp;<p>Sound Speaker</p>
+                                </div>
+                                <div class="offer-words">
+                                    <i class="ph ph-dresser"></i> &nbsp;&nbsp;&nbsp;<p>Clothes storage: wardrobe</p>
+                                </div>
+                                <div class="offer-words">
+                                    <i class="ph ph-calendar-blank"></i> &nbsp;&nbsp;&nbsp;<p>Long-term stays allowed</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="host-stats">
-                        <div class="stat">
-                            <strong>141</strong>
-                            <span>Reviews</span>
-                        </div>
+                </div>
 
-                        <div class="stat">
-                            <strong>4.99 <i class="ph-fill ph-star"></i> </strong>
-                            <span>Rating</span>
-                        </div>
+                <br>
+                <hr>
+                <br>
 
-                        <div class="stat">
-                            <strong>5+</strong>
-                            <span>Years hosting</span>
+                <!-- Ratings Section -->
+                <div class="mb-3">
+                    <div class="rating-holds">
+                        <div class="rating-icon">
+                            <i class="ph ph-caret-double-left"></i> 
+                        </div>
+                        <div class="rating-star-holds">
+                            <span class="rating-value"><%= (listing.reviews.reduce((sum, r) => sum + r.rating, 0) / listing.reviews.length).toFixed(2) %></span>
+                        </div>
+                        <div class="rating-icon">
+                            <i class="ph ph-caret-double-right"></i>
+                        </div>
+                    </div>
+                    <div class="rating-docs">
+                        <h4>Guest favourite</h4>
+                    </div>
+                    <div class="rating-docs-p">
+                        <p>This home is a guest favourite based on ratings, reviews and reliability</p>
+                    </div>
+
+                    <div class="rating-compontes">
+                        <div class="rating-boxs">
+                            <div class="ratting-box1">
+                                <h6>Cleanliness</h6>
+                                <h6>5.0</h6>
+                                <div class="rating-box-icon">
+                                    <i class="ph ph-spray-bottle"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="rating-boxs">
+                            <div class="ratting-box2">
+                                <h6>Accuracy</h6>
+                                <h6>4.8</h6>
+                                <div class="rating-box-icon">
+                                    <i class="ph ph-check-circle"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="rating-boxs">
+                            <div class="ratting-box3">
+                                <h6>Check-in</h6>
+                                <h6>4.7</h6>
+                                <div class="rating-box-icon">
+                                    <i class="ph ph-key"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="rating-boxs">
+                            <div class="ratting-box4">
+                                <h6>Communication</h6>
+                                <h6>5.0</h6>
+                                <div class="rating-box-icon">
+                                    <i class="ph ph-chat-centered"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="rating-boxs">
+                            <div class="ratting-box5">
+                                <h6>Location</h6>
+                                <h6>4.5</h6>
+                                <div class="rating-box-icon">
+                                    <i class="ph ph-map-trifold"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="rating-boxs">
+                            <div class="ratting-box6">
+                                <h6>Value</h6>
+                                <h6>4.8</h6>
+                                <div class="rating-box-icon">
+                                    <i class="ph ph-tag"></i>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="host-card-bottom">
-                    <span class="badge"> <i class="ph ph-user-circle"></i> SuperHost</span>
+                <hr>
+
+                <!-- Review Form -->
+                <% if(currUser) { %>
+                <div class="mb-3">
+                    <h3>Leave a Review</h3>
+                    <form action="/listings/<%= listing._id %>/reviews" method="POST" class="needs-validation" novalidate>
+                        <div class="mb-3 mt-3">
+                            <label for="rating" class="form-label">Rating</label>
+                            <fieldset class="starability-fade">
+                                <input type="radio" id="no-rate" class="input-no-rate" name="review[rating]" value="1" checked aria-label="No rating." />
+                                <input type="radio" id="first-rate1" name="review[rating]" value="1" />
+                                <label for="first-rate1" title="Terrible">1 star</label>
+                                <input type="radio" id="first-rate2" name="review[rating]" value="2" />
+                                <label for="first-rate2" title="Not good">2 stars</label>
+                                <input type="radio" id="first-rate3" name="review[rating]" value="3" />
+                                <label for="first-rate3" title="Average">3 stars</label>
+                                <input type="radio" id="first-rate4" name="review[rating]" value="4" />
+                                <label for="first-rate4" title="Very good">4 stars</label>
+                                <input type="radio" id="first-rate5" name="review[rating]" value="5" />
+                                <label for="first-rate5" title="Amazing">5 stars</label>
+                            </fieldset>
+                        </div>
+                        <div class="mb-3 mt-3">
+                            <label for="comment" class="form-label">Comments</label>
+                            <textarea name="review[comment]" id="comment" cols="30" rows="5" class="form-control" required></textarea>
+                            <div class="invalid-feedback">Please add comments</div>
+                        </div>
+                        <button class="btn btn-outline-dark">Submit</button>
+                    </form>
+                </div>
+                <hr> 
+                <% } %>
+
+                <!-- All Reviews -->
+                <% if (listing.reviews.length > 0) { %>
+                <div class="all-review-section">
+                    <h3>All Reviews</h3>
+                    <div class="row row-cols-1 row-cols-md-2 g-4">
+                        <% for (review of listing.reviews) { %>
+                        <div class="col">
+                            <div class="card-review h-100">
+                                <div class="card-body">
+                                    <h5 class="card-title mb-2">
+                                        <i class="ph ph-user-circle" style="font-size: 1.3rem;"></i>
+                                        <%= review.author.username %>
+                                    </h5>
+                                    <p class="starability-result" data-rating="<%= review.rating %>"></p>
+                                    <p class="card-text mb-3"><%= review.comment %></p>
+                                </div>
+                                <% if (currUser && review.author._id.equals(currUser._id)) { %>
+                                <div class="px-3 pb-3">
+                                    <form method="POST" action="/listings/<%= listing._id %>/reviews/<%= review._id %>?_method=DELETE">
+                                        <button class="btn btn-sm btn-dark">Delete</button>
+                                    </form>
+                                </div>
+                                <% } %>
+                            </div>
+                        </div>
+                        <% } %>
+                    </div>
+                </div>
+                <% } %>
+
+                <hr>
+                <br>
+
+                <!-- Map Section -->
+                <div class="row">
+                    <div class="col-12 mb-3">
+                        <h3>Where you'll be</h3>
+                        <p><%= listing.location %></p>
+                        <div id="map"></div>
+                    </div>
+                </div>
+
+                <hr>
+                <br>
+
+                <!-- Host Details -->
+                <h3>Meet your host</h3>
+                <div class="host-details">
+                    <div class="inner-host1">
+                        <div class="host-card">
+                            <div class="host-card-top">
+                                <div class="host-avatar">
+                                    <h4><%= listing.owner.username %></h4>
+                                </div>
+                                <div class="host-stats">
+                                    <div class="stat">
+                                        <strong>141</strong>
+                                        <span>Reviews</span>
+                                    </div>
+                                    <div class="stat">
+                                        <strong>4.99 <i class="ph-fill ph-star"></i></strong>
+                                        <span>Rating</span>
+                                    </div>
+                                    <div class="stat">
+                                        <strong>5+</strong>
+                                        <span>Years hosting</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="host-card-bottom">
+                                <span class="badge"><i class="ph ph-user-circle"></i> SuperHost</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="inner-host2">
+                        <h4><%= listing.owner.username %> is a SuperHost</h4>
+                        <p>Superhosts are experienced, highly rated hosts who are committed to providing great stays for guests.</p>
+                        <br>
+                        <h4>Host Details</h4>
+                        <p>Response rate: 100%</p>
+                        <p>Response within an hour</p>
+                        <button class="message-btn">
+                            <a href="mailto:shankarakashkore32@gmail.com">Message host</a>
+                        </button>
+                    </div>
+                </div>
+
+                <hr>
+                <br>
+
+
+            <!-- RIGHT COLUMN - Booking Card -->
+            <div class="booking-sidebar">
+                <div class="booking-card">
+                    <div class="booking-header">
+                        <div class="price-section">
+                            <h5>Add dates for prices</h5>
+                            <span class="price">₹<%= listing.price.toLocaleString() %></span>
+                            <span class="price-label">per night</span>
+                        </div>
+                        <% if (listing.reviews && listing.reviews.length > 0) { %>
+                        <div class="rating-section">
+                            <i class="fas fa-star"></i>
+                            <span class="rating-value"><%= (listing.reviews.reduce((sum, r) => sum + r.rating, 0) / listing.reviews.length).toFixed(2) %></span>
+                            <span class="review-count">(<%= listing.reviews.length %> reviews)</span>
+                        </div>
+                        <% } %>
+                    </div>
+
+                    <% 
+                    const today = new Date();
+                    const year = today.getFullYear();
+                    const month = String(today.getMonth() + 1).padStart(2, '0');
+                    const day = String(today.getDate()).padStart(2, '0');
+                    const todayString = `${year}-${month}-${day}`;
+                    %>
+
+                    <form action="/bookings" method="POST" class="booking-form" id="bookingForm">
+                        <input type="hidden" name="listingId" value="<%= listing._id %>">
+                        
+                        <div class="date-inputs">
+                            <div class="input-group">
+                                <label for="checkIn">CHECK-IN</label>
+                                <input type="date" id="checkIn" name="checkIn" required min="<%= todayString %>">
+                            </div>
+                            <div class="input-group">
+                                <label for="checkOut">CHECKOUT</label>
+                                <input type="date" id="checkOut" name="checkOut" required min="<%= todayString %>">
+                            </div>
+                        </div>
+
+                        <div class="input-group guests-input">
+                            <label for="guests">GUESTS</label>
+                            <select name="guests" id="guests" required>
+                                <% for(let i = 1; i <= 10; i++) { %>
+                                <option value="<%= i %>"><%= i %> guest<%= i > 1 ? 's' : '' %></option>
+                                <% } %>
+                            </select>
+                        </div>
+
+                        <div id="priceBreakdown" class="price-breakdown" style="display: none;">
+                            <div class="price-row">
+                                <span>₹<%= listing.price.toLocaleString() %> x <span id="nightCount">0</span> nights</span>
+                                <span id="basePrice">₹0</span>
+                            </div>
+                            <div class="price-row total">
+                                <strong>Total</strong>
+                                <strong id="totalPrice">₹0</strong>
+                            </div>
+                        </div>
+
+                        <% if (currUser) { %>
+                        <a href="/bookingdone"><button type="submit" class="reserve-btn">Reserve</button></a>
+                        <p class="no-charge-msg">You won't be charged yet</p>
+                        <% } else { %>
+                        <a href="/login" class="reserve-btn">Log in to book</a>
+                        <% } %>
+                    </form>
+
+                    <div id="availabilityMessage" class="availability-message" style="display: none;"></div>
                 </div>
             </div>
-        </div>
-
-        <div class="inner-host2">
-            <h4><%= listing.owner.username %> is a SuperHost</h4>
-            <p>
-                Superhosts are experienced, highly rated hosts who are committed
-                to providing great stays for guests.
-            </p>
-
-            <br>
-            <h4>Host Details</h4>
-            <p>Response rate: 100%</p>
-            <p>Response within an hour</p>
-            <button class="message-btn"><a href="https://mailto:shankarakashkore32@gmail.com">Message host</a></button>
+            <br><hr>
+                <!-- Things to Know -->
+                <div class="mb-5" style="margin-top: 50px;">
+                    <h3>Things to know</h3>
+                    <div class="extra">
+                        <div class="box1">
+                            <div class="input-group-extra">
+                                <i class="ph ph-key"></i>
+                            </div>
+                            <h6>House Rules</h6>
+                            <div class="words">
+                                <p>
+                                    Check-in after 11:00 am<br>
+                                    Checkout before 8:00 am<br>
+                                    5 guests maximum
+                                </p>
+                            </div>
+                            <div class="link-extra">
+                                <a href="/">Learn more</a>
+                            </div>
+                        </div>
+                        <div class="box2">
+                            <div class="input-group-extra">
+                                <i class="ph ph-shield"></i>
+                            </div>
+                            <h6>Safety & Property</h6>
+                            <div class="words">
+                                <p>
+                                    Carbon monoxide alarm not reported<br>
+                                    Smoke alarm not reported<br>
+                                    Exterior security cameras on property
+                                </p>
+                            </div>
+                            <div class="link-extra">
+                                <a href="/">Learn more</a>
+                            </div>
+                        </div>
+                        <div class="box3">
+                            <div class="input-group-extra">
+                                <i class="ph ph-calendar"></i>
+                            </div>
+                            <h6>Cancellation policy</h6>
+                            <div class="words">
+                                <p>
+                                    Free cancellation before 11:00 am on particular date.<br>
+                                    Cancel before check-in within one day for a partial refund.<br>
+                                    Review this host's full policy for details.
+                                </p>
+                            </div>
+                            <div class="link-extra">
+                                <a href="/">Learn more</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <br><br><br><br><br><br>
+            </div>
         </div>
     </div>
-    <hr>
 
-    
+    <script src="/js/map.js"></script>
 
-    
-    <br><br><br>
-    <hr>
-    <div class="mb-5 ">
-        <h3>Things to know</h3>
-        <div class="extra">
-            <div class="box1">
-                <p>HarHari</p>
-                <div class="input-group-extra">
-                    <i class="ph ph-key"></i>
-                </div>
-
-                <h6>House Rule</h6>
-                <div class="words">
-                    <p>
-                        Check-in after 11:00 am <br>
-                        Checkout before 8:00 am <br>
-                        5 guests maximum
-                    </p>
-                </div>
-
-                <div class="link-extra">
-                    <a href="/">Learn more</a>
-                </div>
-            </div>
-
-            <div class="box2">
-                <p>HarHari</p>
-                <div class="input-group-extra">
-                    <i class="ph ph-shield"></i>
-                </div>
-                <h6>Safety & Property</h6>
-                <div class="words">
-                    <p>Carbon monoxide alarm not reported <br>
-                        Smoke alarm not reported <br>
-                        Exterior security cameras on property
-                    </p>
-                </div>
-                <div class="link-extra">
-                    <a href="/">Learn more</a>
-                </div>
-            </div>
-
-            <div class="box3">
-                <p>HarHari</p>
-                <div class="input-group-extra">
-                    <i class="ph ph-calendar"></i>
-                </div>
-                <h6>Cancellation policy</h6>
-                <div class="words">
-                    <p>
-                        Free cancellation before 11:00 am on particular date. <br>
-                        Cancel before check-in within one day for a partial refund. <br>
-                        Review this host's full policy for details.
-                    </p>
-                </div>
-                <div class="link-extra">
-                    <a href="/">Learn more</a>
-                </div>
-            </div>
-
-        </div>
-    </div>
-
-</div>
-
-<script src="/js/map.js"></script>
-
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        const checkInInput = document.getElementById('checkIn');
-        const checkOutInput = document.getElementById('checkOut');
-        const priceBreakdown = document.getElementById('priceBreakdown');
-        const nightCount = document.getElementById('nightCount');
-        const basePrice = document.getElementById('basePrice');
-        const totalPrice = document.getElementById('totalPrice');
-        const availabilityMessage = document.getElementById('availabilityMessage');
-        const bookingForm = document.getElementById('bookingForm');
-        
-        const pricePerNight = <%= listing.price %>;
-        const listingId = '<%= listing._id %>';
-
-        checkInInput.addEventListener('change', function() {
-            const checkInDate = new Date(this.value);
-            checkInDate.setDate(checkInDate.getDate() + 1);
-            checkOutInput.min = checkInDate.toISOString().split('T')[0];
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const checkInInput = document.getElementById('checkIn');
+            const checkOutInput = document.getElementById('checkOut');
+            const priceBreakdown = document.getElementById('priceBreakdown');
+            const nightCount = document.getElementById('nightCount');
+            const basePrice = document.getElementById('basePrice');
+            const totalPrice = document.getElementById('totalPrice');
+            const availabilityMessage = document.getElementById('availabilityMessage');
+            const bookingForm = document.getElementById('bookingForm');
             
-            if (checkOutInput.value && new Date(checkOutInput.value) <= new Date(this.value)) {
-                checkOutInput.value = '';
-            }
-            
-            calculatePrice();
-            checkAvailability();
-        });
+            const pricePerNight = <%= listing.price %>;
+            const listingId = '<%= listing._id %>';
 
-        checkOutInput.addEventListener('change', function() {
-            calculatePrice();
-            checkAvailability();
-        });
+            checkInInput.addEventListener('change', function() {
+                const checkInDate = new Date(this.value);
+                checkInDate.setDate(checkInDate.getDate() + 1);
+                checkOutInput.min = checkInDate.toISOString().split('T')[0];
+                
+                if (checkOutInput.value && new Date(checkOutInput.value) <= new Date(this.value)) {
+                    checkOutInput.value = '';
+                }
+                
+                calculatePrice();
+                checkAvailability();
+            });
 
-        function calculatePrice() {
-            const checkIn = checkInInput.value;
-            const checkOut = checkOutInput.value;
+            checkOutInput.addEventListener('change', function() {
+                calculatePrice();
+                checkAvailability();
+            });
 
-            if (checkIn && checkOut) {
-                const start = new Date(checkIn);
-                const end = new Date(checkOut);
-                const nights = Math.ceil((end - start) / (1000 * 60 * 60 * 24));
+            function calculatePrice() {
+                const checkIn = checkInInput.value;
+                const checkOut = checkOutInput.value;
 
-                if (nights > 0) {
-                    const total = pricePerNight * nights;
-                    nightCount.textContent = nights;
-                    basePrice.textContent = '₹' + total.toLocaleString();
-                    totalPrice.textContent = '₹' + total.toLocaleString();
-                    priceBreakdown.style.display = 'block';
+                if (checkIn && checkOut) {
+                    const start = new Date(checkIn);
+                    const end = new Date(checkOut);
+                    const nights = Math.ceil((end - start) / (1000 * 60 * 60 * 24));
+
+                    if (nights > 0) {
+                        const total = pricePerNight * nights;
+                        nightCount.textContent = nights;
+                        basePrice.textContent = '₹' + total.toLocaleString();
+                        totalPrice.textContent = '₹' + total.toLocaleString();
+                        priceBreakdown.style.display = 'block';
+                    } else {
+                        priceBreakdown.style.display = 'none';
+                    }
                 } else {
                     priceBreakdown.style.display = 'none';
                 }
-            } else {
-                priceBreakdown.style.display = 'none';
             }
-        }
 
-        async function checkAvailability() {
-            const checkIn = checkInInput.value;
-            const checkOut = checkOutInput.value;
+            async function checkAvailability() {
+                const checkIn = checkInInput.value;
+                const checkOut = checkOutInput.value;
 
-            if (checkIn && checkOut) {
-                try {
-                    const response = await fetch('/bookings/check-availability', {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json',
-                        },
-                        body: JSON.stringify({
-                            listingId: listingId,
-                            checkIn: checkIn,
-                            checkOut: checkOut
-                        })
-                    });
+                if (checkIn && checkOut) {
+                    try {
+                        const response = await fetch('/bookings/check-availability', {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json',
+                            },
+                            body: JSON.stringify({
+                                listingId: listingId,
+                                checkIn: checkIn,
+                                checkOut: checkOut
+                            })
+                        });
 
-                    const data = await response.json();
-                    
-                    if (data.available) {
-                        availabilityMessage.textContent = '✓ Available for your dates';
-                        availabilityMessage.className = 'availability-message success';
-                    } else {
-                        availabilityMessage.textContent = '✗ Not available for selected dates';
-                        availabilityMessage.className = 'availability-message error';
+                        const data = await response.json();
+                        
+                        if (data.available) {
+                            availabilityMessage.textContent = '✓ Available for your dates';
+                            availabilityMessage.className = 'availability-message success';
+                        } else {
+                            availabilityMessage.textContent = '✗ Not available for selected dates';
+                            availabilityMessage.className = 'availability-message error';
+                        }
+                        availabilityMessage.style.display = 'block';
+                    } catch (error) {
+                        console.error('Error checking availability:', error);
                     }
-                    availabilityMessage.style.display = 'block';
-                } catch (error) {
-                    console.error('Error checking availability:', error);
+                } else {
+                    availabilityMessage.style.display = 'none';
                 }
-            } else {
-                availabilityMessage.style.display = 'none';
-            }
-        }
-
-        bookingForm.addEventListener('submit', function(e) {
-            const checkIn = checkInInput.value;
-            const checkOut = checkOutInput.value;
-
-            if (!checkIn || !checkOut) {
-                e.preventDefault();
-                alert('Please select check-in and check-out dates');
-                return;
             }
 
-            const start = new Date(checkIn);
-            const end = new Date(checkOut);
-            
-            if (end <= start) {
-                e.preventDefault();
-                alert('Check-out date must be after check-in date');
-                return;
-            }
+            bookingForm.addEventListener('submit', function(e) {
+                const checkIn = checkInInput.value;
+                const checkOut = checkOutInput.value;
+
+                if (!checkIn || !checkOut) {
+                    e.preventDefault();
+                    alert('Please select check-in and check-out dates');
+                    return;
+                }
+
+                const start = new Date(checkIn);
+                const end = new Date(checkOut);
+                
+                if (end <= start) {
+                    e.preventDefault();
+                    alert('Check-out date must be after check-in date');
+                    return;
+                }
+            });
         });
-    });
     </script>
 </body>
-

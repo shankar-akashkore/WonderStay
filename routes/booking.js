@@ -18,4 +18,6 @@ router.get('/listing/:id/booked-dates', bookingController.getBookedDates);
 // Cancel booking
 router.delete('/:bookingId', isLoggedIn, bookingController.cancelBooking);
 
+// router.get('/bookingdone')
+
 module.exports = router;

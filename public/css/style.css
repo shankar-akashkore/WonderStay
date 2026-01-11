@@ -102,10 +102,11 @@ body{
 }
 
 .card-review{
-    border: solid 1px gray;
+    border: solid 1px #ccc;
     border-radius: 8px;
-    margin-bottom: 2rem;
-    display: inline-block;
+    height: 100%;
+    /* margin-bottom: 2rem;
+    display: inline-block; */
 }
 
 /* add button */
