@@ -1,0 +1,60 @@
+.rating-holds {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+.rating-icon {
+    font-size: 3.2rem;
+}
+
+.rating-star-holds {
+    font-size: 2.7rem;
+    margin: 0 10px;
+}
+
+.rating-docs {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.rating-docs-p {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.rating-docs-p p {
+    color: #717171;
+}
+
+.rating-compontes {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 20px;
+    flex-wrap: wrap;
+}
+
+.rating-boxs {
+    padding: 0 20px;
+}
+
+.rating-boxs:not(:first-child) {
+    border-left: 1px solid #e0e0e0;
+}
+
+.ratting-box1, .ratting-box2, .ratting-box3, 
+.ratting-box4, .ratting-box5, .ratting-box6 {
+    height: 110px;
+    width: 130px;
+}
+
+.rating-box-icon {
+    font-size: 1.6rem;
+    padding-left: 5px;
+}

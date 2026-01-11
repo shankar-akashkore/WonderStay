@@ -1,0 +1,180 @@
+.booking-card {
+    /* position: sticky; */
+    top: 100px;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    padding: 24px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+    background: white;
+    width: 100%;
+    max-width: 600px;
+}
+
+.booking-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid #eee;
+}
+
+.price-section {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.price {
+    font-size: 22px;
+    font-weight: 600;
+    color: #222;
+}
+
+.price-label {
+    font-size: 16px;
+    color: #717171;
+}
+
+.rating-section {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 14px;
+}
+
+.rating-section .fa-star {
+    color: #ff385c;
+}
+
+.rating-value {
+    font-weight: 600;
+}
+
+.review-count {
+    color: #717171;
+    text-decoration: underline;
+}
+
+.booking-form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.date-inputs {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border: 1px solid #b0b0b0;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.date-inputs .input-group:first-child {
+    border-right: 1px solid #b0b0b0;
+}
+
+.input-group label {
+    font-size: 10px;
+    font-weight: 600;
+    color: #222;
+    padding: 8px 12px 0;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.input-group input,
+.input-group select {
+    border: none;
+    padding: 4px 12px 12px;
+    font-size: 14px;
+    outline: none;
+    background: transparent;
+    font-family: inherit;
+}
+
+.guests-input {
+    border: 1px solid #b0b0b0;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.guests-input select {
+    cursor: pointer;
+}
+
+.price-breakdown {
+    padding: 16px 0;
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+}
+
+.price-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 12px;
+    color: #222;
+    font-size: 14px;
+}
+
+.price-row:last-child {
+    margin-bottom: 0;
+}
+
+.price-row.total {
+    margin-top: 16px;
+    padding-top: 16px;
+    border-top: 1px solid #eee;
+    font-size: 16px;
+}
+
+.reserve-btn {
+    background: #fe424d;
+    color: white;
+    padding: 14px;
+    border: none;
+    border-radius: 6rem;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+    text-align: center;
+    text-decoration: none;
+    display: block;
+}
+
+.reserve-btn:hover {
+    background: #d01346;
+}
+
+.no-charge-msg {
+    text-align: center;
+    color: #717171;
+    font-size: 14px;
+    margin-top: 8px;
+}
+
+.availability-message {
+    margin-top: 12px;
+    padding: 12px;
+    border-radius: 8px;
+    font-size: 14px;
+    text-align: center;
+}
+
+.availability-message.error {
+    background: #fff0f0;
+    color: #c13515;
+    border: 1px solid #f1c6c1;
+}
+
+.availability-message.success {
+    background: #f0fff4;
+    color: #15803d;
+    border: 1px solid #c1f1d4;
+}

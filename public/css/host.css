@@ -1,0 +1,112 @@
+.host-details {
+    width: 100%;
+    max-width: 1000px;
+    min-height: 500px;
+    display: flex;
+    gap: 60px;
+    margin-top: 40px;
+}
+
+.inner-host1, .inner-host2 {
+    flex: 1;
+}
+
+.inner-host1 {
+    display: flex;
+    justify-content: flex-start;
+    padding-top: 60px;
+}
+
+.host-card {
+    height: 350px;
+    width: 100%;
+    max-width: 380px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    padding: 24px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+    background: white;
+}
+
+.host-card-top {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.host-avatar {
+    width: 104px;
+    height: 104px;
+    border-radius: 50%;
+    background-image: url("/images/user.png");
+    background-size: cover;
+    flex-shrink: 0;
+    margin-left: 30px;
+}
+
+.host-avatar h4 {
+    
+    margin-top: 120px;
+    text-align: center;
+}
+
+.host-stats {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding-left: 60px;
+    padding-top: 30px;
+}
+
+.stat strong {
+    font-size: 20px;
+    display: block;
+}
+
+.stat span {
+    font-size: 14px;
+    color: #666;
+}
+
+.host-card-bottom {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    margin-top: auto;
+}
+
+.badge {
+    font-size: 14px;
+    color: #555;
+}
+
+.inner-host2 {
+    padding-top: 60px;
+}
+
+.inner-host2 h4 {
+    margin-bottom: 12px;
+}
+
+.inner-host2 p {
+    margin-bottom: 16px;
+    line-height: 1.6;
+}
+
+.message-btn {
+    margin-top: 20px;
+    padding: 14px 24px;
+    border-radius: 12px;
+    border: none;
+    background-color: #eee;
+    cursor: pointer;
+}
+
+.message-btn a {
+    color: #555;
+    text-decoration: none;
+}

@@ -1,0 +1,71 @@
+.navbar{
+    height: 5rem;
+    background-color: white;
+}
+
+.fa-compass{
+    color: #ff626d;
+    font-size: 2rem;
+}
+
+.nav-link{
+    color: #222222 !important;
+}
+
+@media(max-width: 600px) {
+    .navbar {
+        height: 4rem;
+        padding: 0 10px;
+        font-size: 0.8rem;
+    }
+
+    .fa-compass {
+        font-size: 1.5rem;
+    }
+
+    .nav-link {
+        font-size: 0.9rem;
+        padding:  0.5rem !important;
+    }
+
+    .container {
+        max-width: 100%;
+        padding: 0 15px;
+    }
+}
+
+.btn-search {
+    background-color: #fe424d;
+    color: #fff;
+    border-radius: 25px;
+    padding: 0 1rem 0 1rem;
+  }
+  .btn-search:hover {
+    background-color: #fe424d;
+    color: #fff;
+  }
+  .btn-search i {
+    display: inline;
+    margin-right: 0.5rem;
+  }
+  .search-inp {
+    border-radius: 25px;
+    padding: 0.5rem 3rem 0.5rem 3rem;
+    font-size: 1rem;
+  }
+
+  @media(max-width: 767px) {
+    .search-inp {
+      padding: 0.5rem 0.8rem;
+      font-size: 0.9rem;
+      width: 100%;
+      max-width: 200px;
+    }
+    .btn-search {
+      padding: 0.5rem 0.8rem;
+      font-size: 0.9rem;
+    }
+    .btn-search i {
+      margin-right: 0.3rem;
+    }
+  }

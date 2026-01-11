@@ -1,0 +1,50 @@
+.all-review-section {
+    padding: 20px;
+}
+
+.card-review {
+    border: 1px solid #eee;
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 15px;
+}
+
+.listing-grid {
+    display: grid;
+    grid-template-columns: 1fr 600px;
+    gap: 40px;
+    margin-top: 20px;
+}
+
+@media (max-width: 1024px) {
+    .listing-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .booking-card {
+        position: static;
+        max-width: 100%;
+    }
+
+    .extra {
+        flex-direction: column;
+    }
+
+    .offer {
+        flex-direction: column;
+    }
+
+    .host-details {
+        flex-direction: column;
+    }
+
+    .rating-compontes {
+        flex-direction: column;
+    }
+
+    .rating-boxs:not(:first-child) {
+        border-left: none;
+        border-top: 1px solid #e0e0e0;
+        padding-top: 20px;
+    }
+}

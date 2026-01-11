@@ -1,0 +1,24 @@
+.offer {
+    display: flex;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.offer1, .offer2 {
+    flex: 1;
+}
+
+.offer-words {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.offer-words p {
+    font-size: 1.1rem;
+    margin: 0;
+}
+
+.offer-p {
+    font-size: 1.6rem;
+}

@@ -1,0 +1,77 @@
+.section1 {
+    margin-bottom: 20px;
+  }
+
+  .section2 { 
+    height: 80px;
+    width: 1200px;
+    border-radius: 3rem;
+    background-color: #eaecf38c;
+  }
+
+  #filters {
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-bottom: 15px;
+  }
+
+  .filters-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+  
+  .filter{
+    color: rgb(168, 165, 165);
+    text-align: center;
+    margin-top: 1rem;
+    margin-right: 2rem;
+    opacity: 0.7;
+    text-decoration: none;
+  }
+
+  .filter:hover {
+    opacity: 1.2;
+    cursor: pointer;
+  }
+
+  .filter p {
+    font-size: 0.8rem  ;
+  }
+
+  .ph-bold {
+    font-size: 29px;
+  }
+
+  .tax-info {
+    display: none;
+  }
+  
+  .tax-toggle {
+    position: absolute;
+    right: 0;
+    border: 0.3px solid gray;
+    border-radius: 1.5rem;
+    height: 3rem;
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    margin-bottom: 18px;
+  }
+
+  .filter.active {
+    color: black;
+    opacity: 0.8;
+    
+  }
+
+  .filter.active:hover {
+    opacity: 0.8;
+  }
+
+  .filter:visited {
+    color: inherit;
+  }
