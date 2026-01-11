@@ -336,7 +336,7 @@
         color: white;
         padding: 14px;
         border: none;
-        border-radius: 8px;
+        border-radius: 6rem;
         font-size: 16px;
         font-weight: 600;
         cursor: pointer;
@@ -348,7 +348,7 @@
 
     .reserve-btn:hover {
         background: linear-gradient(to right, #d01346 0%, #ca1a56 50%, #c2045d 100%);
-        transform: scale(1.02);
+        /* transform: scale(1.02); */
     }
 
     .no-charge-msg {
@@ -393,6 +393,47 @@
             flex-direction: column;
             height: auto;
         }
+    }
+
+    .rating-holds {
+        /* border: solid black 1px; */
+        /* padding-left: 550px; */
+        align-items: center;
+        justify-content: center;
+        display: flex;
+    }
+
+    .rating-holds span {
+        size: 3.2rem;
+    }
+
+    .rating-icon {
+        font-size: 3.2rem;
+    }
+
+    .rating-star-holds {
+        font-size: 2.7rem;
+    }
+
+    .rating-docs {
+        /* border: solid black 1px; */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .rating-docs-p {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .rating-docs-p p {
+        color: #717171;
+    }
+
+    .rating-compontes {
+        border: solid black 1px;
     }
     
 </style>
@@ -453,17 +494,19 @@
     <% if(currUser && listing.owner._id.equals(currUser._id)) { %>
     <div class="btns">
         <a href="/listings/<%= listing._id %>/edit" 
-            class="btn col-1 offset-3 btn-show">Edit</a>
+            class="btn col-1 offset-0 btn-show">Edit</a>
         <form method="POST" action="/listings/<%=listing._id%>?_method=DELETE">
         <button class="btn btn-dark offset-4">Delete</button>
     </form>
     </div>
     <% } %>
 
-
-    <div class="col-5 offset-3 mb-2">
+    <br>
+    <hr>
+    <br>
+    <div class="col-5 offset-0 mb-2">
         <h3>What this place offer</h3>
-        <br>
+        <br><br>
         <div class="offer">
             <div class="offer1">
                 <p>HarHari</p>
@@ -510,15 +553,134 @@
        </div>
 
 
+       <br>
+       <hr>
+       <br>
 
 
 
+       <div class="booking-sidebar">
+        <diV class="booking-card">
+            <div class="booking-header">
+                <div class="price-section">
+                    <span>Add dates for price</span> <br>
+                    <span class="price">₹<%= listing.price.toLocaleString() %></span>
+                    <span class="price-label">per night</span>
+                </div>
+                <% if (listing.reviews && listing.reviews.length > 0) { %>
+                    <div class="rating-section">
+                        <i class="fas fa-star"></i>
+                        <span class="rating-value"><%= (listing.reviews.reduce((sum, r) => sum + r.rating, 0) / listing.reviews.length).toFixed(2) %></span>
+                        <span class="review-count">(<%= listing.reviews.length %> reviews)</span>
+                    </div>
+                <% } %>
+            </div>
+
+            <% 
+  // Calculate today's date in YYYY-MM-DD format
+  const today = new Date();
+  const year = today.getFullYear();
+  const month = String(today.getMonth() + 1).padStart(2, '0');
+  const day = String(today.getDate()).padStart(2, '0');
+  const todayString = `${year}-${month}-${day}`;
+%>
+
+<form action="/bookings" method="POST" class="booking-form" id="bookingForm">
+    <input type="hidden" name="listingId" value="<%= listing._id %>">
     
+    <div class="date-inputs">
+        <div class="input-group">
+            <label for="checkIn">CHECK-IN</label>
+            <input 
+                type="date" 
+                id="checkIn" 
+                name="checkIn" 
+                required
+                min="<%= todayString %>"
+            >
+        </div>
+        <div class="input-group">
+            <label for="checkOut">CHECKOUT</label>
+            <input 
+                type="date" 
+                id="checkOut" 
+                name="checkOut" 
+                required
+                min="<%= todayString %>"
+            >
+        </div>
+    </div>
 
-    <div class="col-5 offset-3 mb-3">
+    <div class="input-group guests-input">
+        <label for="guests">GUESTS</label>
+        <select name="guests" id="guests" required>
+            <% for(let i = 1; i <= 10; i++) { %>
+                <option value="<%= i %>"><%= i %> guest<%= i > 1 ? 's' : '' %></option>
+            <% } %>
+        </select>
+    </div>
+
+    <div id="priceBreakdown" class="price-breakdown" style="display: none;">
+        <div class="price-row">
+            <span>₹<%= listing.price.toLocaleString() %> x <span id="nightCount">0</span> nights</span>
+            <span id="basePrice">₹0</span>
+        </div>
+        <div class="price-row total">
+            <strong>Total</strong>
+            <strong id="totalPrice">₹0</strong>
+        </div>
+    </div>
+
+    <% if (currUser) { %>
+        <button type="submit" class="reserve-btn">Reserve</button>
+        <p class="no-charge-msg">You won't be charged yet</p>
+    <% } else { %>
+        <a href="/login" class="reserve-btn">Log in to book</a>
+    <% } %>
+</form>
+
+<div id="availabilityMessage" class="availability-message" style="display: none;"></div>
+        </diV>
+    </div>
+    <br><br>
+
+
+    <hr>
+    <div class=" mb-3">
+        <div class="rating-holds">
+            <div class="rating-icon">
+                <i class="ph ph-caret-double-left"></i> 
+            </div> &nbsp;&nbsp;
+
+            <div class="rating-star-holds">
+                <span class="rating-value"><%= (listing.reviews.reduce((sum, r) => sum + r.rating, 0) / listing.reviews.length).toFixed(2) %></span>
+            </div>&nbsp;&nbsp;
+
+            <div class="rating-icon">
+                <i class="ph ph-caret-double-right"></i>
+            </div>
+        </div>
+        <div class="rating-docs">
+            <h4>Guest favourite</h4>
+        </div>
+        <div class="rating-docs-p">
+            <p>This home is a guest favourite based on ratings, reviews and reliability</p>
+        </div>
+
+        <div class="rating-compontes">
+            <div class="ratting-box1"></div>
+            <div class="ratting-box2"></div>
+            <div class="ratting-box3"></div>
+            <div class="ratting-box4"></div>
+            <div class="ratting-box5"></div>
+            <div class="ratting-box6"></div>
+        </div>
+    </div>
+
+    <div class="col-5 offset-0 mb-3">
         <hr>
         <% if(currUser) { %>
-        <h3>Add a Review</h3>
+        <h3>Reviews</h3>
         <form action="/listings/<%= listing._id %>/reviews" method="POST" class="needs-validation"  novalidate>
         
             <div class="mb-3 mt-3">
@@ -632,88 +794,7 @@
     </div>
     <hr>
 
-    <div class="booking-sidebar">
-        <diV class="booking-card">
-            <div class="booking-header">
-                <div class="price-section">
-                    <span class="price">₹<%= listing.price.toLocaleString() %></span>
-                    <span class="price-label">per night</span>
-                </div>
-                <% if (listing.reviews && listing.reviews.length > 0) { %>
-                    <div class="rating-section">
-                        <i class="fas fa-star"></i>
-                        <span class="rating-value"><%= (listing.reviews.reduce((sum, r) => sum + r.rating, 0) / listing.reviews.length).toFixed(2) %></span>
-                        <span class="review-count">(<%= listing.reviews.length %> reviews)</span>
-                    </div>
-                <% } %>
-            </div>
-
-            <% 
-  // Calculate today's date in YYYY-MM-DD format
-  const today = new Date();
-  const year = today.getFullYear();
-  const month = String(today.getMonth() + 1).padStart(2, '0');
-  const day = String(today.getDate()).padStart(2, '0');
-  const todayString = `${year}-${month}-${day}`;
-%>
-
-<form action="/bookings" method="POST" class="booking-form" id="bookingForm">
-    <input type="hidden" name="listingId" value="<%= listing._id %>">
     
-    <div class="date-inputs">
-        <div class="input-group">
-            <label for="checkIn">CHECK-IN</label>
-            <input 
-                type="date" 
-                id="checkIn" 
-                name="checkIn" 
-                required
-                min="<%= todayString %>"
-            >
-        </div>
-        <div class="input-group">
-            <label for="checkOut">CHECKOUT</label>
-            <input 
-                type="date" 
-                id="checkOut" 
-                name="checkOut" 
-                required
-                min="<%= todayString %>"
-            >
-        </div>
-    </div>
-
-    <div class="input-group guests-input">
-        <label for="guests">GUESTS</label>
-        <select name="guests" id="guests" required>
-            <% for(let i = 1; i <= 10; i++) { %>
-                <option value="<%= i %>"><%= i %> guest<%= i > 1 ? 's' : '' %></option>
-            <% } %>
-        </select>
-    </div>
-
-    <div id="priceBreakdown" class="price-breakdown" style="display: none;">
-        <div class="price-row">
-            <span>₹<%= listing.price.toLocaleString() %> x <span id="nightCount">0</span> nights</span>
-            <span id="basePrice">₹0</span>
-        </div>
-        <div class="price-row total">
-            <strong>Total</strong>
-            <strong id="totalPrice">₹0</strong>
-        </div>
-    </div>
-
-    <% if (currUser) { %>
-        <button type="submit" class="reserve-btn">Reserve</button>
-        <p class="no-charge-msg">You won't be charged yet</p>
-    <% } else { %>
-        <a href="/login" class="reserve-btn">Log in to book</a>
-    <% } %>
-</form>
-
-<div id="availabilityMessage" class="availability-message" style="display: none;"></div>
-        </diV>
-    </div>
 
     
     <br><br><br>

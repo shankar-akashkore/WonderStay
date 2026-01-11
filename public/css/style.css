@@ -105,6 +105,7 @@ body{
     border: solid 1px gray;
     border-radius: 8px;
     margin-bottom: 2rem;
+    display: inline-block;
 }
 
 /* add button */
@@ -128,7 +129,7 @@ body{
 
 /* edit */
 .show-img{
-    height: 30vh;
+    height: 50vh;
 }
 
 .btns{
