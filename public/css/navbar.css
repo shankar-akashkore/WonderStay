@@ -69,3 +69,18 @@
       margin-right: 0.3rem;
     }
   }
+
+  @media (max-width: 480px) {
+
+    .fa-compass {
+      font-size: 1.4rem;
+    }
+  
+    .search-inp {
+      font-size: 0.85rem;
+    }
+  
+    .btn-search {
+      font-size: 0.9rem;
+    }
+  }

@@ -3,10 +3,14 @@
   }
 
   .section2 { 
-    height: 80px;
-    width: 1200px;
+    height: 90px;
+    max-width: 1200px;
+    width: 100%;
     border-radius: 3rem;
     background-color: #eaecf38c;
+    padding-top: 8px;
+    overflow: hidden; 
+
   }
 
   #filters {
@@ -15,6 +19,7 @@
     flex-wrap: wrap;
     align-items: center;
     margin-bottom: 15px;
+    justify-content: center;
   }
 
   .filters-wrapper {
@@ -31,6 +36,7 @@
     margin-right: 2rem;
     opacity: 0.7;
     text-decoration: none;
+    flex-shrink: 0; 
   }
 
   .filter:hover {
@@ -75,3 +81,114 @@
   .filter:visited {
     color: inherit;
   }
+
+  @media (max-width: 1024px) {
+    .section2 {
+        width: 100%;
+        max-width: 95%;
+        height: auto;
+        padding: 10px 0;
+    }
+
+    #filters {
+        gap: 1rem;
+        padding: 0 10px;
+    }
+
+    .filter {
+        margin-right: 1rem;
+    }
+
+    .tax-toggle {
+        position: relative;
+        right: auto;
+        margin-top: 10px;
+        width: 100%;
+        justify-content: center;
+    }
+
+    .filters-wrapper {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 768px) {
+  .section1 {
+      margin-bottom: 15px;
+      width: 100%;
+  }
+
+  .section2 {
+      width: 100%;
+      max-width: 95%;
+      height: auto;
+      border-radius: 2rem;
+      padding: 15px 10px;
+      margin: 0 auto
+      
+  }
+
+  #filters {
+    gap: 0.1rem; /* Reduce gap */
+    padding: 10px 5px;
+    justify-content: flex-start;
+    overflow-x: auto;
+    flex-wrap: nowrap; /* Force single row */
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  #filters::-webkit-scrollbar {
+      display: none; /* Chrome/Safari */
+  }
+
+  .filter {
+    margin-right: 0.8rem;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    flex-shrink: 0;
+    min-width: 50px; /* Ensure minimum width */
+  }
+
+  .filter p {
+      font-size: 0.7rem;
+      white-space: nowrap;
+  }
+
+  .ph-bold {
+      font-size: 22px;
+  }
+
+  .tax-toggle {
+    position: relative;
+    width: calc(100% - 20px);
+    margin: 10px auto;
+    right: auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .section2 {
+    padding: 0.75rem;
+    border-radius: 1.5rem;
+  }
+
+  #filters {
+    gap: 0rem;
+  }
+
+  .filter p {
+    font-size: 0.45rem;
+  }
+
+  .ph-bold {
+    font-size: 20px;
+  }
+
+  .tax-toggle {
+    height: 2rem;
+    padding: 0.5rem 0.75rem;
+    font-size: 0.75rem;
+    border-radius: 1rem;
+  }
+}
