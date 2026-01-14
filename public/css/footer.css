@@ -30,3 +30,45 @@
     justify-content: center;
     align-items: space-evenly;
 }
+
+@media screen and (max-width: 767px) {
+    .f-info {
+        height: auto;
+        min-height: 12rem;
+        flex-direction: column;
+        padding: 1.5rem 1rem;
+    }
+    
+    .f-info-links, .f-info-socials, .f-info-brand {
+        margin-bottom: 1rem;
+    }
+    
+    .f-info-links a {
+        margin-right: 0.5rem;
+        font-size: 0.875rem;
+    }
+    
+    .f-info-socials {
+        font-size: 1.25rem;
+    }
+}
+
+/* Tablet styles (768px to 1023px) */
+/* @media screen and (min-width: 768px) and (max-width: 1023px) {
+    .f-info {
+        height: auto;
+        min-height: 10rem;
+        padding: 1.5rem;
+    }
+    
+    .f-info-links, .f-info-socials, .f-info-brand {
+        width: auto;
+        margin: 0.5rem 1.5rem;
+    }
+    
+    .f-info-links a {
+        font-size: 0.95rem;
+    }
+} */
+
+/* Desktop styles (1024px and up) */
