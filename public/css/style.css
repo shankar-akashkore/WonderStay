@@ -100,3 +100,100 @@ body{
     width: 145vh;
     border-radius: 8px;
 }
+
+
+
+
+
+
+
+@media screen and (max-width: 767px) {
+    .container {
+        max-width: 100%;
+        padding: 0 1rem;
+    }
+    
+    .card {
+        margin-bottom: 1.5rem;
+    }
+    
+    .card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    }
+    
+    .card-img-top {
+        border-radius: 0.75rem !important;
+    }
+    
+    .btn-link-custom {
+        padding: 8px 16px;
+        font-size: 0.9rem;
+        width: 100%;
+    }
+    
+    .show-img {
+        height: 30vh;
+    }
+    
+    .btns {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    
+    .btns .btn {
+        width: 100%;
+    }
+    
+    #map {
+        height: 250px;
+        width: 100%;
+    }
+}
+
+/* Tablet devices (768px to 1023px) */
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+    .container {
+        max-width: 100%;
+        padding: 0 1.5rem;
+    }
+    
+    .card {
+        margin-bottom: 1.75rem;
+    }
+    
+    .card:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    }
+    
+    .btn-link-custom {
+        padding: 9px 17px;
+        font-size: 0.95rem;
+    }
+    
+    .show-img {
+        height: 40vh;
+    }
+    
+    .btns {
+        gap: 0.75rem;
+    }
+    
+    #map {
+        height: 350px;
+        width: 100%;
+    }
+}
+
+/* Desktop devices (1024px and up) */
+/* @media screen and (min-width: 1024px) {
+    .container {
+        padding: 0 2rem;
+    }
+    
+    #map {
+        width: 100%;
+        max-width: 145vh;
+    }
+} */

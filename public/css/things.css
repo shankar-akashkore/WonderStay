@@ -28,3 +28,101 @@
 .link-extra a:hover {
     color: black;
 }
+
+
+
+
+
+
+
+
+
+/* Original styles remain unchanged */
+.extra {
+    height: auto;
+    width: 100%;
+    max-width: 1300px;
+    display: flex;
+    margin-top: 30px;
+    gap: 8px;
+}
+
+.box1, .box2, .box3 {
+    flex: 1;
+    min-width: 0;
+}
+
+.input-group-extra {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+}
+
+.words {
+    font-size: 0.85rem;
+}
+
+.link-extra a {
+    color: gray;
+}
+
+.link-extra a:hover {
+    color: black;
+}
+
+/* ============================================
+   MEDIA QUERIES FOR RESPONSIVE DESIGN
+   ============================================ */
+
+/* Mobile devices (up to 767px) */
+@media screen and (max-width: 767px) {
+    .extra {
+        flex-direction: column;
+        margin-top: 20px;
+        gap: 20px;
+        padding: 0 1rem;
+    }
+    
+    .box1, .box2, .box3 {
+        width: 100%;
+    }
+    
+    .input-group-extra {
+        font-size: 1.3rem;
+        margin-bottom: 8px;
+    }
+    
+    .words {
+        font-size: 0.8rem;
+    }
+}
+
+/* Tablet devices (768px to 1023px) */
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+    .extra {
+        flex-wrap: wrap;
+        margin-top: 25px;
+        gap: 15px;
+        padding: 0 1.5rem;
+    }
+    
+    .box1, .box2, .box3 {
+        flex: 1 1 calc(50% - 15px);
+        min-width: 280px;
+    }
+    
+    .input-group-extra {
+        font-size: 1.5rem;
+        margin-bottom: 9px;
+    }
+    
+    .words {
+        font-size: 0.82rem;
+    }
+}
+
+/* Desktop devices (1024px and up) */
+/* @media screen and (min-width: 1024px) {
+    .extra {
+        padding: 0 2rem;
+    }
+} */
