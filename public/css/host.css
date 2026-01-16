@@ -110,3 +110,162 @@
     color: #555;
     text-decoration: none;
 }
+
+
+
+
+
+
+
+@media screen and (max-width: 767px) {
+    .host-details {
+        flex-direction: column;
+        gap: 30px;
+        margin-top: 20px;
+        padding: 0 1rem;
+        min-height: auto;
+    }
+    
+    .inner-host1 {
+        padding-top: 20px;
+        justify-content: center;
+    }
+    
+    .host-card {
+        height: auto;
+        max-width: 100%;
+        padding: 20px;
+        gap: 20px;
+    }
+    
+    .host-card-top {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+    }
+    
+    .host-avatar {
+        margin-left: 0;
+        width: 90px;
+        height: 90px;
+        margin-bottom: 15px;
+    }
+    
+    .host-avatar h4 {
+        margin-top: 100px;
+        font-size: 1.1rem;
+        margin-bottom: 10px;
+    }
+    
+    .host-stats {
+        padding-left: 0;
+        padding-top: 10px;
+        align-items: center;
+        gap: 10px;
+        width: 100%;
+    }
+    
+    .stat strong {
+        font-size: 18px;
+    }
+    
+    .stat span {
+        font-size: 13px;
+    }
+    
+    .host-card-bottom {
+        gap: 8px;
+        margin-top: 10px;
+    }
+    
+    .badge {
+        font-size: 13px;
+    }
+    
+    .inner-host2 {
+        padding-top: 0;
+    }
+    
+    .inner-host2 h4 {
+        margin-bottom: 10px;
+        font-size: 1.1rem;
+    }
+    
+    .inner-host2 p {
+        margin-bottom: 14px;
+        font-size: 0.95rem;
+        line-height: 1.5;
+    }
+    
+    .message-btn {
+        margin-top: 15px;
+        padding: 12px 20px;
+        width: 100%;
+    }
+}
+
+/* Tablet devices (768px to 1023px) */
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+    .host-details {
+        flex-direction: column;
+        gap: 40px;
+        margin-top: 30px;
+        padding: 0 1.5rem;
+        min-height: auto;
+    }
+    
+    .inner-host1 {
+        padding-top: 30px;
+        justify-content: center;
+    }
+    
+    .host-card {
+        height: auto;
+        max-width: 450px;
+        padding: 22px;
+        margin: 0 auto;
+    }
+    
+    .host-avatar {
+        width: 95px;
+        height: 95px;
+        margin-left: 20px;
+    }
+    
+    .host-avatar h4 {
+        margin-top: 110px;
+    }
+    
+    .host-stats {
+        padding-left: 40px;
+        padding-top: 20px;
+    }
+    
+    .stat strong {
+        font-size: 19px;
+    }
+    
+    .inner-host2 {
+        padding-top: 0;
+    }
+    
+    .inner-host2 h4 {
+        margin-bottom: 11px;
+    }
+    
+    .inner-host2 p {
+        margin-bottom: 15px;
+    }
+    
+    .message-btn {
+        margin-top: 18px;
+        padding: 13px 22px;
+    }
+}
+
+/* Desktop devices (1024px and up) */
+/* @media screen and (min-width: 1024px) {
+    .host-details {
+        padding: 0 2rem;
+    }
+} */
