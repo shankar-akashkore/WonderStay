@@ -22,3 +22,65 @@
 .offer-p {
     font-size: 1.6rem;
 }
+
+
+
+
+
+
+
+
+
+
+@media screen and (max-width: 767px) {
+    .offer {
+        flex-direction: column;
+        gap: 15px;
+        margin-top: 15px;
+        padding: 0 1rem;
+    }
+    
+    .offer1, .offer2 {
+        width: 100%;
+    }
+    
+    .offer-words {
+        margin-bottom: 8px;
+    }
+    
+    .offer-words p {
+        font-size: 0.95rem;
+    }
+    
+    .offer-p {
+        font-size: 1.3rem;
+    }
+}
+
+/* Tablet devices (768px to 1023px) */
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+    .offer {
+        gap: 18px;
+        margin-top: 18px;
+        padding: 0 1.5rem;
+    }
+    
+    .offer-words {
+        margin-bottom: 9px;
+    }
+    
+    .offer-words p {
+        font-size: 1.05rem;
+    }
+    
+    .offer-p {
+        font-size: 1.45rem;
+    }
+}
+
+/* Desktop devices (1024px and up) */
+/* @media screen and (min-width: 1024px) {
+    .offer {
+        padding: 0 2rem;
+    }
+} */

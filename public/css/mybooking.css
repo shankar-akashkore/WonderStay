@@ -110,3 +110,196 @@
 .index-loc-icon {
     font-size: 1.2rem;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media screen and (max-width: 767px) {
+    .bookings-container {
+        padding: 20px 10px;
+    }
+    
+    .booking-card {
+        padding: 16px;
+        margin-bottom: 16px;
+    }
+    
+    .booking-header {
+        flex-direction: column;
+        gap: 12px;
+        margin-bottom: 12px;
+    }
+    
+    .booking-property {
+        flex-direction: column;
+        gap: 12px;
+        width: 100%;
+    }
+    
+    .property-image {
+        width: 100%;
+        height: 180px;
+        max-width: 280px;
+    }
+    
+    .property-details {
+        width: 100%;
+    }
+    
+    .property-details h4 {
+        font-size: 1rem;
+        margin: 0 0 6px 0;
+        line-height: 1.3;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+    }
+    
+    .property-details h4 a {
+        font-size: 1rem;
+        display: block;
+    }
+    
+    .booking-status {
+        align-self: flex-start;
+        padding: 5px 10px;
+        font-size: 12px;
+    }
+    
+    .index-loc {
+        padding-top: 4px;
+        flex-wrap: wrap;
+    }
+    
+    .index-loc-icon {
+        font-size: 1rem;
+    }
+    
+    .index-loc p {
+        font-size: 0.9rem;
+    }
+    
+    .booking-dates {
+        flex-direction: column;
+        gap: 12px;
+        margin-top: 12px;
+        padding-top: 12px;
+    }
+    
+    .date-info {
+        width: 100%;
+    }
+    
+    .date-info strong {
+        font-size: 11px;
+        margin-bottom: 3px;
+    }
+    
+    .date-info p {
+        font-size: 0.95rem;
+    }
+    
+    .cancel-btn {
+        width: 100%;
+        padding: 10px 16px;
+        font-size: 13px;
+        margin-top: 8px;
+    }
+    
+    .no-bookings {
+        padding: 40px 15px;
+    }
+    
+    .no-bookings i {
+        font-size: 48px;
+    }
+    
+    .no-bookings h3 {
+        font-size: 1.2rem;
+    }
+    
+    .no-bookings p {
+        font-size: 0.9rem;
+    }
+}
+
+/* Tablet devices (768px to 1023px) */
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+    .bookings-container {
+        padding: 30px 15px;
+    }
+    
+    .booking-card {
+        padding: 20px;
+        margin-bottom: 18px;
+    }
+    
+    .booking-header {
+        margin-bottom: 14px;
+    }
+    
+    .booking-property {
+        gap: 14px;
+    }
+    
+    .property-image {
+        width: 110px;
+        height: 110px;
+    }
+    
+    .property-details h4 {
+        font-size: 1.1rem;
+        margin: 0 0 7px 0;
+    }
+    
+    .booking-status {
+        padding: 5px 11px;
+        font-size: 13px;
+    }
+    
+    .index-loc-icon {
+        font-size: 1.1rem;
+    }
+    
+    .booking-dates {
+        gap: 18px;
+        margin-top: 14px;
+        padding-top: 14px;
+    }
+    
+    .date-info strong {
+        font-size: 11.5px;
+    }
+    
+    .cancel-btn {
+        padding: 9px 15px;
+        font-size: 13.5px;
+    }
+    
+    .no-bookings {
+        padding: 50px 20px;
+    }
+    
+    .no-bookings i {
+        font-size: 56px;
+    }
+}
+
+/* Desktop devices (1024px and up) */
+/* @media screen and (min-width: 1024px) {
+    .bookings-container {
+        padding: 40px 30px;
+    }
+} */
