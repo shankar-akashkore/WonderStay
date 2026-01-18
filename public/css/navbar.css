@@ -12,7 +12,13 @@
     color: #222222 !important;
 }
 
-@media(max-width: 600px) {
+
+
+
+
+
+
+  @media(max-width: 600px) {
     .navbar {
         height: 4rem;
         padding: 0 10px;
@@ -84,3 +90,78 @@
       font-size: 0.9rem;
     }
   }
+
+/* ============================================
+   MOBILE MENU FIX
+   ============================================ */
+
+/* Fix for Bootstrap navbar collapse menu on mobile */
+@media (max-width: 991px) {
+    .navbar-collapse {
+        background-color: white;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        width: 100%;
+        padding: 1rem;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        border-radius: 0 0 8px 8px;
+        z-index: 1000;
+    }
+    
+    .navbar-nav {
+        background-color: white;
+        padding: 0.5rem 0;
+    }
+    
+    .nav-item {
+        background-color: white;
+        border-bottom: 1px solid #f0f0f0;
+        padding: 0.5rem 0;
+    }
+    
+    .nav-item:last-child {
+        border-bottom: none;
+    }
+    
+    .nav-link {
+        color: #222222 !important;
+        padding: 0.75rem 1rem !important;
+        display: block;
+        background-color: white;
+    }
+    
+    .nav-link:hover {
+        background-color: #f8f8f8;
+        border-radius: 4px;
+    }
+}
+
+/* Additional fixes for very small screens */
+@media (max-width: 600px) {
+    .navbar-collapse {
+        padding: 0.75rem;
+        max-height: 80vh;
+        overflow-y: auto;
+    }
+    
+    .nav-link {
+        padding: 0.6rem 0.8rem !important;
+        font-size: 0.95rem;
+    }
+}
+
+/* Ensure navbar toggler button is visible */
+.navbar-toggler {
+    border-color: rgba(0, 0, 0, 0.1);
+    padding: 0.5rem 0.75rem;
+}
+
+.navbar-toggler:focus {
+    box-shadow: 0 0 0 0.2rem rgba(255, 98, 109, 0.25);
+}
+
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(34, 34, 34, 0.75)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}

@@ -178,3 +178,194 @@
     color: #15803d;
     border: 1px solid #c1f1d4;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media screen and (max-width: 767px) {
+    .booking-card {
+        max-width: 100%;
+        padding: 16px;
+        margin: 0 0.5rem;
+        border-radius: 8px;
+        position: static;
+        top: auto;
+    }
+    
+    .booking-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+        margin-bottom: 16px;
+        padding-bottom: 16px;
+    }
+    
+    .price-section {
+        width: 100%;
+        gap: 2px;
+    }
+    
+    .price {
+        font-size: 18px;
+    }
+    
+    .price-label {
+        font-size: 14px;
+    }
+    
+    .rating-section {
+        font-size: 13px;
+    }
+    
+    .booking-form {
+        gap: 12px;
+    }
+    
+    .date-inputs {
+        grid-template-columns: 1fr;
+        border-radius: 6px;
+    }
+    
+    .date-inputs .input-group:first-child {
+        border-right: none;
+        border-bottom: 1px solid #b0b0b0;
+    }
+    
+    .input-group label {
+        font-size: 9px;
+        padding: 6px 10px 0;
+    }
+    
+    .input-group input,
+    .input-group select {
+        padding: 3px 10px 10px;
+        font-size: 13px;
+    }
+    
+    .guests-input {
+        border-radius: 6px;
+    }
+    
+    .price-breakdown {
+        padding: 12px 0;
+    }
+    
+    .price-row {
+        margin-bottom: 10px;
+        font-size: 13px;
+    }
+    
+    .price-row.total {
+        margin-top: 12px;
+        padding-top: 12px;
+        font-size: 15px;
+    }
+    
+    .reserve-btn {
+        padding: 12px;
+        font-size: 15px;
+    }
+    
+    .no-charge-msg {
+        font-size: 12px;
+        margin-top: 6px;
+    }
+    
+    .availability-message {
+        margin-top: 10px;
+        padding: 10px;
+        font-size: 12px;
+    }
+}
+
+/* Tablet devices (768px to 1023px) */
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+    .booking-card {
+        max-width: 100%;
+        padding: 20px;
+        margin: 0 1rem;
+        border-radius: 10px;
+    }
+    
+    .booking-header {
+        margin-bottom: 20px;
+        padding-bottom: 20px;
+    }
+    
+    .price {
+        font-size: 20px;
+    }
+    
+    .price-label {
+        font-size: 15px;
+    }
+    
+    .rating-section {
+        font-size: 13.5px;
+    }
+    
+    .booking-form {
+        gap: 14px;
+    }
+    
+    .input-group label {
+        font-size: 9.5px;
+        padding: 7px 11px 0;
+    }
+    
+    .input-group input,
+    .input-group select {
+        padding: 3.5px 11px 11px;
+        font-size: 13.5px;
+    }
+    
+    .price-breakdown {
+        padding: 14px 0;
+    }
+    
+    .price-row {
+        margin-bottom: 11px;
+        font-size: 13.5px;
+    }
+    
+    .price-row.total {
+        margin-top: 14px;
+        padding-top: 14px;
+        font-size: 15.5px;
+    }
+    
+    .reserve-btn {
+        padding: 13px;
+        font-size: 15.5px;
+    }
+    
+    .no-charge-msg {
+        font-size: 13px;
+        margin-top: 7px;
+    }
+    
+    .availability-message {
+        margin-top: 11px;
+        padding: 11px;
+        font-size: 13px;
+    }
+}
+
+/* Desktop devices (1024px and up) */
+@media screen and (min-width: 1024px) {
+    .booking-card {
+        position: sticky;
+        top: 100px;
+    }
+}
