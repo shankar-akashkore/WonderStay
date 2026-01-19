@@ -1,0 +1,131 @@
+.btns {
+display: flex;
+gap: 10px;
+margin-top: 20px;
+}
+
+.btn-show {
+background-color: #ff626d !important;
+color: white !important;
+}
+
+.btn-dark {
+background-color: #222222;
+color: white;
+}
+
+@media screen and (max-width: 767px) {
+.btns {
+flex-direction: column;
+gap: 8px;
+margin-top: 15px;
+padding: 0 1rem;
+}
+
+.btns .btn {
+width: 100%;
+padding: 10px 16px;
+font-size: 0.9rem;
+border-radius: 12px;
+}
+
+.btns a.btn {
+text-align: center;
+display: block;
+}
+
+.btns form {
+width: 100%;
+margin: 0;
+}
+
+.btns form .btn {
+width: 100%;
+}
+
+/* Remove Bootstrap offset classes on mobile */
+.btn.offset-0,
+.btn.offset-4 {
+margin-left: 0 !important;
+}
+
+.btn.col-1 {
+flex: none;
+width: 100%;
+}
+}
+
+/* Tablet devices (768px to 1023px) - Medium buttons */
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+.btns {
+flex-direction: row;
+gap: 12px;
+margin-top: 18px;
+padding: 0 1.5rem;
+flex-wrap: wrap;
+}
+
+.btns .btn {
+padding: 11px 20px;
+font-size: 0.95rem;
+border-radius: 10px;
+flex: 1;
+min-width: 120px;
+}
+
+.btns a.btn {
+text-align: center;
+}
+
+.btns form {
+flex: 1;
+margin: 0;
+}
+
+.btns form .btn {
+width: 100%;
+}
+
+/* Adjust Bootstrap offset classes for tablet */
+.btn.offset-4 {
+margin-left: 0 !important;
+}
+
+.btn.col-1 {
+flex: 1;
+width: auto;
+}
+}
+
+/* Desktop devices (1024px and up) - Normal size buttons */
+@media screen and (min-width: 1024px) {
+.btns {
+gap: 15px;
+margin-top: 20px;
+}
+
+.btns .btn {
+padding: 12px 24px;
+font-size: 1rem;
+border-radius: 10px;
+}
+
+.btns a.btn {
+text-align: center;
+}
+}
+
+/* Hover effects for all screen sizes */
+.btn-show:hover {
+background-color: #e5576a !important;
+transform: translateY(-2px);
+box-shadow: 0 4px 8px rgba(255, 98, 109, 0.3);
+transition: all 0.2s ease;
+}
+
+.btn-dark:hover {
+background-color: #000000;
+transform: translateY(-2px);
+box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+transition: all 0.2s ease;
+}
