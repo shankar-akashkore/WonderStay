@@ -1,0 +1,204 @@
+  .auth-container {
+    min-height: 100vh;
+  }
+
+  /* LEFT SIDE (FORM) */
+  .auth-left {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .auth-card {
+    width: 100%;
+    max-width: 420px;
+  }
+
+  /* RIGHT SIDE (IMAGE) */
+  .auth-right {
+    height: 80vh;
+    background-image: url("/images/poster.png");
+    background-size: cover;
+    background-position: center top 6rem;
+    background-repeat: no-repeat;
+    margin-top: 1rem;
+  }
+
+  .input-group-text {
+    border-left: 0;
+    background: white;
+    font-size: 1.5rem;
+  }
+
+  .form-control {
+    border-right: 0;
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  @media screen and (max-width: 767px) {
+    .auth-container {
+        min-height: 100vh;
+        padding: 0;
+    }
+    
+    /* Hide the right image section completely on mobile */
+    .auth-right {
+        display: none !important;
+    }
+    
+    /* Make left section full width and move up */
+    .auth-left {
+        width: 100%;
+        min-height: 100vh;
+        padding: 1rem 1rem 2rem;
+        justify-content: flex-start;
+        padding-top: 1rem;
+    }
+    
+    /* Adjust auth card */
+    .auth-card {
+        max-width: 100%;
+        padding: 1.5rem;
+        margin-top: 0;
+    }
+    
+    /* Adjust input sizes for mobile */
+    .input-group-text {
+        font-size: 1.2rem;
+        padding: 0.5rem 0.75rem;
+    }
+    
+    .form-control {
+        font-size: 0.95rem;
+        padding: 0.6rem 0.75rem;
+    }
+    
+    /* Adjust form headings */
+    .auth-card h2,
+    .auth-card h3 {
+        font-size: 1.5rem;
+        margin-bottom: 1.5rem;
+        text-align: center;
+    }
+    
+    /* Adjust buttons */
+    .auth-card .btn {
+        padding: 0.7rem 1rem;
+        font-size: 0.95rem;
+        width: 100%;
+    }
+    
+    /* Adjust links */
+    .auth-card a {
+        font-size: 0.9rem;
+    }
+    
+    /* Stack multiple input fields better */
+    .mb-3 {
+        margin-bottom: 1rem !important;
+    }
+}
+
+/* Tablet devices (768px to 1023px) - Hide right image section */
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+    .auth-container {
+        min-height: 100vh;
+    }
+    
+    /* Hide the right image section on tablet */
+    .auth-right {
+        display: none !important;
+    }
+    
+    /* Make left section full width */
+    .auth-left {
+        width: 100%;
+        min-height: 100vh;
+        padding: 3rem 2rem;
+    }
+    
+    /* Center and adjust auth card */
+    .auth-card {
+        max-width: 480px;
+        padding: 2rem;
+    }
+    
+    /* Adjust input sizes for tablet */
+    .input-group-text {
+        font-size: 1.3rem;
+        padding: 0.6rem 0.85rem;
+    }
+    
+    .form-control {
+        font-size: 1rem;
+        padding: 0.65rem 0.85rem;
+    }
+    
+    /* Adjust form headings */
+    .auth-card h2,
+    .auth-card h3 {
+        font-size: 1.75rem;
+        margin-bottom: 1.75rem;
+    }
+    
+    /* Adjust buttons */
+    .auth-card .btn {
+        padding: 0.75rem 1.25rem;
+        font-size: 1rem;
+    }
+    
+    /* Stack multiple input fields better */
+    .mb-3 {
+        margin-bottom: 1.25rem !important;
+    }
+}
+
+/* Desktop devices (1024px and up) - Show right image section */
+/* @media screen and (min-width: 1024px) {
+    .auth-container {
+        display: flex;
+    } */
+    
+    /* Left section (form) takes remaining space */
+    /* .auth-left {
+        flex: 1;
+        padding: 2rem;
+    } */
+    
+    /* Show and style the right section (image) */
+    /* .auth-right {
+        display: block !important;
+        flex: 1;
+    }
+    
+    .auth-card {
+        padding: 2rem;
+    }
+} */
+
+/* Large desktop (1440px and up) */
+/* @media screen and (min-width: 1440px) {
+    .auth-left {
+        padding: 3rem;
+    }
+    
+    .auth-right {
+        height: 85vh;
+    }
+    
+    .auth-card {
+        max-width: 480px;
+    }
+} */
