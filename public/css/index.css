@@ -82,113 +82,146 @@
     color: inherit;
   }
 
-  @media (max-width: 1024px) {
+  @media screen and (max-width: 767px) {
+    .section1 {
+        margin-bottom: 15px;
+        padding: 0 0.5rem;
+    }
+    
     .section2 {
-        width: 100%;
-        max-width: 95%;
         height: auto;
-        padding: 10px 0;
+        min-height: 120px;
+        border-radius: 1.5rem;
+        padding: 1rem 0.5rem;
+        margin: 0 0.5rem;
     }
-
+    
     #filters {
-        gap: 1rem;
-        padding: 0 10px;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 0.5rem;
+        row-gap: 1rem;
+        margin-bottom: 10px;
+        padding: 0 0.5rem;
     }
-
-    .filter {
-        margin-right: 1rem;
-    }
-
-    .tax-toggle {
-        position: relative;
-        right: auto;
-        margin-top: 10px;
+    
+    .filters-wrapper {
         width: 100%;
+        padding: 0;
+    }
+    
+    .filter {
+        margin-top: 0.5rem;
+        margin-right: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
         justify-content: center;
     }
-
-    .filters-wrapper {
-        flex-direction: column;
+    
+    .filter p {
+        font-size: 0.7rem;
+        margin-top: 0.3rem;
+    }
+    
+    .ph-bold {
+        font-size: 24px;
+    }
+    
+    /* Hide tax toggle on mobile or position it differently */
+    .tax-toggle {
+        position: static;
+        margin: 1rem auto 0.5rem;
+        height: 2.5rem;
+        padding: 0.75rem;
+        font-size: 0.85rem;
     }
 }
 
-@media (max-width: 768px) {
-  .section1 {
-      margin-bottom: 15px;
-      width: 100%;
-  }
-
-  .section2 {
-      width: 100%;
-      max-width: 95%;
-      height: auto;
-      border-radius: 2rem;
-      padding: 15px 10px;
-      margin: 0 auto
-      
-  }
-
-  #filters {
-    gap: 0.1rem; /* Reduce gap */
-    padding: 10px 5px;
-    justify-content: flex-start;
-    overflow-x: auto;
-    flex-wrap: nowrap; /* Force single row */
-    scrollbar-width: none;
-    -ms-overflow-style: none;
-  }
-
-  #filters::-webkit-scrollbar {
-      display: none; /* Chrome/Safari */
-  }
-
-  .filter {
-    margin-right: 0.8rem;
-    margin-top: 0.5rem;
-    margin-bottom: 0.5rem;
-    flex-shrink: 0;
-    min-width: 50px; /* Ensure minimum width */
-  }
-
-  .filter p {
-      font-size: 0.7rem;
-      white-space: nowrap;
-  }
-
-  .ph-bold {
-      font-size: 22px;
-  }
-
-  .tax-toggle {
-    position: relative;
-    width: calc(100% - 20px);
-    margin: 10px auto;
-    right: auto;
-  }
+/* Small mobile devices (up to 480px) - Still 4 icons per row but more compact */
+@media screen and (max-width: 480px) {
+    .section2 {
+        padding: 0.75rem 0.25rem;
+        margin: 0 0.25rem;
+    }
+    
+    #filters {
+        gap: 0.25rem;
+        row-gap: 0.75rem;
+        padding: 0 0.25rem;
+    }
+    
+    .filter p {
+        font-size: 0.65rem;
+    }
+    
+    .ph-bold {
+        font-size: 22px;
+    }
 }
 
-@media (max-width: 480px) {
-  .section2 {
-    padding: 0.75rem;
-    border-radius: 1.5rem;
-  }
-
-  #filters {
-    gap: 0rem;
-  }
-
-  .filter p {
-    font-size: 0.45rem;
-  }
-
-  .ph-bold {
-    font-size: 20px;
-  }
-
-  .tax-toggle {
-    height: 2rem;
-    padding: 0.5rem 0.75rem;
-    font-size: 0.75rem;
-    border-radius: 1rem;
-  }
+/* Tablet devices (768px to 1023px) */
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+    .section1 {
+        margin-bottom: 18px;
+        padding: 0 1rem;
+    }
+    
+    .section2 {
+        height: auto;
+        min-height: 100px;
+        border-radius: 2rem;
+        padding: 1rem;
+        margin: 0 1rem;
+    }
+    
+    #filters {
+        gap: 1rem;
+        flex-wrap: wrap;
+        padding: 0 0.5rem;
+    }
+    
+    .filter {
+        margin-top: 0.75rem;
+        margin-right: 1rem;
+    }
+    
+    .filter p {
+        font-size: 0.75rem;
+    }
+    
+    .ph-bold {
+        font-size: 26px;
+    }
+    
+    .tax-toggle {
+        height: 2.75rem;
+        padding: 0.85rem;
+        font-size: 0.9rem;
+    }
 }
+
+/* @media screen and (min-width: 1024px) {
+    .section1 {
+        padding: 0 2rem;
+    }
+    
+    .section2 {
+        margin: 0 auto;
+    }
+    
+    #filters {
+        flex-wrap: nowrap;
+        overflow-x: auto;
+    }
+    
+    
+    #filters::-webkit-scrollbar {
+        height: 6px;
+    }
+    
+    #filters::-webkit-scrollbar-thumb {
+        background: #ccc;
+        border-radius: 3px;
+    }
+} */
