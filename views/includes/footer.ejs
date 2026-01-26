@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="/css/footer.css">
+<!-- <link rel="stylesheet" href="/css/footer.css">
 <footer>
     <br><br><br><br><br>
     <div class="f-info">
@@ -13,4 +13,547 @@
             <a href="/terms">Terms</a>
         </div>
     </div>
+</footer> -->
+
+
+
+
+
+
+
+
+
+<!-- WonderStay Footer -->
+ <br> <br> <br> <br> <br> <br> <br>
+<footer class="wonderstay-footer">
+    <div class="footer-main">
+        <div class="footer-container">
+            <!-- Brand Section -->
+            <div class="footer-section footer-brand">
+                <a href="/" class="footer-logo">
+                    <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M20 5L35 15V30L20 40L5 30V15L20 5Z" fill="currentColor" opacity="0.2"/>
+                        <path d="M20 10L30 17V28L20 35L10 28V17L20 10Z" stroke="currentColor" stroke-width="2"/>
+                        <circle cx="20" cy="22.5" r="4" fill="currentColor"/>
+                    </svg>
+                    <span>WonderStay</span>
+                </a>
+                <p class="footer-tagline">Discover extraordinary stays in extraordinary places</p>
+                <div class="footer-social">
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+
+            <!-- Company Links -->
+            <div class="footer-section">
+                <h3 class="footer-title">Company</h3>
+                <ul class="footer-links">
+                    <li><a href="/about">About Us</a></li>
+                    <li><a href="/careers">Careers</a></li>
+                    <li><a href="/press">Press</a></li>
+                    <li><a href="/blog">Blog</a></li>
+                    <li><a href="/sustainability">Sustainability</a></li>
+                </ul>
+            </div>
+
+            <!-- Support Links -->
+            <div class="footer-section">
+                <h3 class="footer-title">Support</h3>
+                <ul class="footer-links">
+                    <li><a href="/help">Help Center</a></li>
+                    <li><a href="/safety">Safety Information</a></li>
+                    <li><a href="/cancellation">Cancellation Options</a></li>
+                    <li><a href="/contact">Contact Us</a></li>
+                    <li><a href="/accessibility">Accessibility</a></li>
+                </ul>
+            </div>
+
+            <!-- Host Section -->
+            <div class="footer-section">
+                <h3 class="footer-title">Hosting</h3>
+                <ul class="footer-links">
+                    <li><a href="/host">Become a Host</a></li>
+                    <li><a href="/host/resources">Host Resources</a></li>
+                    <li><a href="/host/community">Community Forum</a></li>
+                    <li><a href="/host/standards">Hosting Standards</a></li>
+                    <li><a href="/host/protection">Host Protection</a></li>
+                </ul>
+            </div>
+
+            <!-- Newsletter Section -->
+            <div class="footer-section footer-newsletter">
+                <h3 class="footer-title">Stay Connected</h3>
+                <p>Get travel inspiration, deals, and updates</p>
+                <form class="newsletter-form" action="/subscribe" method="POST">
+                    <input type="email" name="email" placeholder="Your email address" required>
+                    <button type="submit" aria-label="Subscribe">
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </form>
+                <br><br>
+                <!-- <div class="footer-app-links">
+                    <a href="#" class="app-badge">
+                        <i class="fab fa-apple"></i>
+                        <span>App Store</span>
+                    </a>
+                    <a href="#" class="app-badge">
+                        <i class="fab fa-google-play"></i>
+                        <span>Google Play</span>
+                    </a>
+                </div> -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer Bottom -->
+    <div class="footer-bottom">
+        <div class="footer-container">
+            <div class="footer-bottom-content">
+                <div class="footer-legal">
+                    <p>&copy; <%= new Date().getFullYear() %> WonderStay, Inc. All rights reserved.</p>
+                    <div class="footer-legal-links">
+                        <a href="/privacy">Privacy</a>
+                        <span class="separator">·</span>
+                        <a href="/terms">Terms</a>
+                        <span class="separator">·</span>
+                        <a href="/sitemap">Sitemap</a>
+                        <span class="separator">·</span>
+                        <a href="/cookies">Cookie Preferences</a>
+                    </div>
+                </div>
+                <!-- <div class="footer-locale">
+                    <button class="locale-selector" aria-label="Change language and currency">
+                        <i class="fas fa-globe"></i>
+                        <span>English (US)</span>
+                    </button>
+                    <button class="currency-selector" aria-label="Change currency">
+                        <i class="fas fa-dollar-sign"></i>
+                        <span>USD</span>
+                    </button>
+                </div> -->
+            </div>
+        </div>
+    </div>
 </footer>
+
+<style>
+/* WonderStay Footer Styles */
+.wonderstay-footer {
+    background: linear-gradient(135deg, #ebebeb 0%, #eaecf38c 100%);
+    color: black;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    position: relative;
+    overflow: hidden;
+}
+
+.wonderstay-footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, 
+        transparent 0%, 
+        rgba(255, 255, 255, 0.1) 20%, 
+        rgba(255, 255, 255, 0.2) 50%, 
+        rgba(255, 255, 255, 0.1) 80%, 
+        transparent 100%
+    );
+}
+
+.footer-main {
+    padding: 4rem 2rem 3rem;
+    position: relative;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1.5fr repeat(3, 1fr) 1.3fr;
+    gap: 3rem;
+}
+
+/* Brand Section */
+.footer-brand {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.footer-logo {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: black;
+    text-decoration: none;
+    transition: transform 0.3s ease;
+}
+
+.footer-logo:hover {
+    transform: translateY(-2px);
+}
+
+.footer-logo svg {
+    color: #ff626d;
+    transition: all 0.3s ease;
+}
+
+.footer-logo:hover svg {
+    transform: rotate(5deg) scale(1.05);
+}
+
+.footer-tagline {
+    color: #b8b8b8;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    margin: 0;
+}
+
+.footer-social {
+    display: flex;
+    gap: 0.75rem;
+    margin-top: 0.5rem;
+}
+
+.footer-social a {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.05);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: black;
+    text-decoration: none;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* .footer-social a:hover {
+    background: #4ecdc4;
+    color: #1a1a2e;
+    transform: translateY(-3px);
+    border-color: #4ecdc4;
+    box-shadow: 0 8px 16px rgba(78, 205, 196, 0.3);
+} */
+
+/* Footer Sections */
+.footer-section {
+    display: flex;
+    flex-direction: column;
+}
+
+.footer-title {
+    font-size: 1rem;
+    font-weight: 600;
+    color: black;
+    margin: 0 0 1.25rem 0;
+    letter-spacing: 0.5px;
+    position: relative;
+    padding-bottom: 0.5rem;
+}
+
+.footer-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 30px;
+    height: 2px;
+    background: linear-gradient(90deg, #ff626d, transparent);
+}
+
+.footer-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.footer-links a {
+    color: #848383;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: all 0.2s ease;
+    display: inline-block;
+    position: relative;
+}
+
+.footer-links a::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    width: 0;
+    height: 1px;
+    background: #ff626d;
+    transition: width 0.3s ease;
+}
+
+/* .footer-links a:hover {
+    color: #4ecdc4;
+    transform: translateX(4px);
+} */
+
+.footer-links a:hover::before {
+    width: 100%;
+}
+
+/* Newsletter Section */
+.footer-newsletter p {
+    color: #b8b8b8;
+    font-size: 0.9rem;
+    margin: 0 0 1rem 0;
+}
+
+.newsletter-form {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.newsletter-form input {
+    flex: 1;
+    padding: 0.875rem 1rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    color: #fff;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+}
+
+.newsletter-form input::placeholder {
+    color: #888;
+}
+
+.newsletter-form input:focus {
+    outline: none;
+    border-color: #ff626d;
+    background: rgba(255, 255, 255, 0.08);
+    box-shadow: 0 0 0 3px rgba(78, 205, 196, 0.1);
+}
+
+.newsletter-form button {
+    padding: 0.875rem 1.25rem;
+    /* background: linear-gradient(135deg, #565d5d, #ff625d); */
+    background-color: #b8b8b8;
+    border: none;
+    border-radius: 8px;
+    color: #1a1a2e;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    font-weight: 600;
+}
+
+/* .newsletter-form button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(78, 205, 196, 0.4);
+} */
+
+.footer-app-links {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+}
+
+.app-badge {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.625rem 1rem;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    color: #e8e8e8;
+    text-decoration: none;
+    font-size: 0.85rem;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+}
+
+.app-badge:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: #4ecdc4;
+    transform: translateY(-2px);
+}
+
+.app-badge i {
+    font-size: 1.25rem;
+}
+
+/* Footer Bottom */
+.footer-bottom {
+    padding: 1.5rem 2rem;
+    background: rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px);
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.footer-bottom-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+}
+
+.footer-legal {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.footer-legal p {
+    margin: 0;
+    color: black;
+    font-size: 0.85rem;
+}
+
+.footer-legal-links {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 0.85rem;
+}
+
+.footer-legal-links a {
+    color: #b8b8b8;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.footer-legal-links a:hover {
+    color: #4ecdc4;
+}
+
+.separator {
+    color: #555;
+}
+
+.footer-locale {
+    display: flex;
+    gap: 0.75rem;
+}
+
+.locale-selector,
+.currency-selector {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    color: #e8e8e8;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+}
+
+.locale-selector:hover,
+.currency-selector:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: #4ecdc4;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .footer-container {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    
+    .footer-brand {
+        grid-column: 1 / -1;
+    }
+    
+    .footer-newsletter {
+        grid-column: 1 / -1;
+    }
+}
+
+@media (max-width: 768px) {
+    .footer-container {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2.5rem;
+    }
+    
+    .footer-main {
+        padding: 3rem 1.5rem 2rem;
+    }
+    
+    .footer-bottom {
+        padding: 1.5rem 1.5rem;
+    }
+    
+    .footer-bottom-content {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .footer-container {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .footer-legal {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.75rem;
+    }
+    
+    .footer-locale {
+        width: 100%;
+        flex-direction: column;
+    }
+    
+    .locale-selector,
+    .currency-selector {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+/* Animation */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.footer-section {
+    animation: fadeInUp 0.6s ease-out backwards;
+}
+
+.footer-section:nth-child(1) { animation-delay: 0.1s; }
+.footer-section:nth-child(2) { animation-delay: 0.2s; }
+.footer-section:nth-child(3) { animation-delay: 0.3s; }
+.footer-section:nth-child(4) { animation-delay: 0.4s; }
+.footer-section:nth-child(5) { animation-delay: 0.5s; }
+</style>
+
+<!-- Font Awesome for Icons (Add this to your main layout if not already included) -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
