@@ -26,4 +26,37 @@ router.route("/:id")
 //edit routes
 router.get("/:id/edit", isLoggedIn,isOwner, wrapAsync(listingController.renderEditForm));
 
+router.get('/search', async (req, res) => {
+    try {
+      const query = req.query.q || '';
+      
+      if (!query.trim()) {
+        req.flash('error', 'Please enter a search term');
+        return res.redirect('/listings');
+      }
+      
+      // Search in title, location, and country
+      const searchRegex = new RegExp(query, 'i');
+      
+      const allListings = await Listing.find({
+        $or: [
+          { title: searchRegex },
+          { location: searchRegex },
+          { country: searchRegex }
+        ]
+      });
+      
+      // Render index page with search results
+      res.render('listings/index', { 
+        allListings,
+        searchQuery: query
+      });
+      
+    } catch (error) {
+      console.error('Search error:', error);
+      req.flash('error', 'Something went wrong');
+      res.redirect('/listings');
+    }
+  });
+
 module.exports = router;
