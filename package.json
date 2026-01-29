@@ -1,17 +1,17 @@
+
+
+
+
 {
-  "engines": {
-    "node": "22.21.1"
-  },
   "name": "wonderstay",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "main": "app.js",
+  "engines": {
+    "node": "20.x"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "scripts": {
+    "start": "node app.js"
+  },
   "dependencies": {
     "@mapbox/mapbox-sdk": "^0.16.2",
     "cloudinary": "^1.32.0",
