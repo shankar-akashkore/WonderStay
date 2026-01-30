@@ -19,7 +19,7 @@
     "dotenv": "^17.2.3",
     "ejs": "^3.1.10",
     "ejs-mate": "^4.0.0",
-    "express": "^4.19.2",
+    "express": "4.19.2",
     "express-session": "^1.18.2",
     "joi": "^18.0.2",
     "method-override": "^3.0.0",
