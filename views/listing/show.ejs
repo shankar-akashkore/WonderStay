@@ -31,12 +31,12 @@
                     <div class="card-body">
                         <p class="card-text"> 
                             <b><%= listing.title %></b> <br>
-                            <i>Hosted by <%= listing.owner.username %></i>
+                            <i>Hosted by &nbsp;<%= listing.owner.username %></i>
                             <br><br>
                             <%= listing.description %> <br>
-                            &#8377;<b><%= listing.price ? listing.price.toLocaleString("en-IN") : "N/A" %></b> <br>
-                            <%= listing.location %> <br>
-                            <%= listing.country %> <br> 
+                            <h4>&#8377;<b><%= listing.price ? listing.price.toLocaleString("en-IN") : "N/A" %></b></h4> <br>
+                            <i class="ph-fill ph-map-pin"></i> &nbsp;<%= listing.location %> <br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= listing.country %> <br> 
                         </p>
                     </div>
                 </div>
